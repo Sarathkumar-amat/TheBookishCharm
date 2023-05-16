@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductContext } from "../contexts/ProductProvider";
 
-export function ApplyCategoryFilter(categoryFilterArr)
+export function CheckandApplyFilter(categoryFilterArr)
 {
     const {bookState} = useContext(ProductContext);
     let displayValue=bookState.displayBooks;

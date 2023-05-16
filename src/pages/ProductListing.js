@@ -3,7 +3,7 @@ import "../App.css";
 
 import { ProductContext } from "../contexts/ProductProvider";
 import { CategoryContext } from "../contexts/CategoryProvider";
-import { CheckAndApplyFilter } from "../Filters/CheckandApplyFilter";
+import { CheckandApplyFilter } from "../Filters/CheckandApplyFilter";
 
 export function ProductListing()
 {
@@ -14,7 +14,7 @@ export function ProductListing()
     }
     console.log(bookState.displayBooks);
     let displayValue = bookState.displayBooks;
-    displayValue = CheckAndApplyFilter(bookState.categoryFilters);
+    displayValue = CheckandApplyFilter(bookState.categoryFilters);
     
     return (<div>
         <h1>List of all products</h1>
