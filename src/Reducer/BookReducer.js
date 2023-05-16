@@ -2,7 +2,9 @@
    export const initialState = {allBooks:[],
     displayBooks:[],
     categoryFilters: [],
-    categories:[]
+    categories:[],
+    sortType:"",
+    searchText:""
 }
 
 export function reducerFunc(state,action){
@@ -20,6 +22,11 @@ export function reducerFunc(state,action){
                 newCat = [...state.categoryFilters,action.payload];
             }
             return {...state,categoryFilters:newCat};
+        case "sort":
+            return {...state,sortType:action.payload};
+        case "searchByText":
+            return {...state,searchText:action.payload};
 
     }
+    
 }

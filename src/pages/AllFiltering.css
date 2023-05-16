@@ -1,0 +1,14 @@
+#sortInputs{
+    display:flex;
+    flex-direction: column;
+}
+.sortPrice{
+    display: flex;
+}
+#catStyle{
+    display: flex;
+    flex-direction: column;
+}
+.individualCat{
+    display: flex;
+}

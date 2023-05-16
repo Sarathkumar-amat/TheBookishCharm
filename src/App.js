@@ -4,10 +4,17 @@ import logo from "./logo.png";
 import MockAPI from "./MockAPI";
 import { Landing } from "./pages/Landing";
 import { ProductListing } from "./pages/ProductListing";
+import { useContext } from "react";
+import { ProductContext } from "./contexts/ProductProvider";
 
 function App() {
+  const {dispatch} = useContext(ProductContext);
   return (
     <div className="App">
+      <nav>
+            <input type="text" placeholder="search book name" 
+            onChange={(event)=>dispatch({type:"searchByText",payload:event.target.value})}/>
+        </nav>
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />

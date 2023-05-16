@@ -4,6 +4,9 @@ import "../App.css";
 import { ProductContext } from "../contexts/ProductProvider";
 import { CategoryContext } from "../contexts/CategoryProvider";
 import { ApplyCategoryFilter } from "../Filters/ApplyCategoryFilter";
+import { AllFilterings } from "./AllFilterings";
+import { SortByPrice } from "../Filters/SortbyPrice";
+import { SearchFilter } from "../Filters/SearchFilter";
 
 
 export function ProductListing()
@@ -17,13 +20,15 @@ export function ProductListing()
     let displayValue = bookState.displayBooks;
     // displayValue = CheckAndApplyFilter(bookState.categoryFilters);
     displayValue = ApplyCategoryFilter(bookState.categoryFilters);
+    displayValue = SortByPrice(displayValue);
+    displayValue = SearchFilter(displayValue);
+    
     
     return (<div>
         <h1>List of all products</h1>
-       <ul> {bookState.categories?.map(category=>
-            <li>
-                <input type="checkbox" onClick={()=>dispatch({type:"catFilter",payload:category})} />{category}
-            </li>)}</ul>
+        <div class="booksAndFilters">
+            
+        <div class="filterBars"><AllFilterings /></div>
         <ul id="bookList">{displayValue?.map(({title,image,price,categoryName})=>
         <li style={bookStyle}>
             <img height="200px" width="200px" src={image} alt={title}/>
@@ -32,5 +37,6 @@ export function ProductListing()
             <p>Category: {categoryName}</p>
         </li>
         )}</ul>
+        </div>
     </div>)
 }

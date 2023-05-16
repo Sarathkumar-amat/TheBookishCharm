@@ -9,3 +9,10 @@ li{
   display:flex;
   flex-wrap: wrap;
 }
+.booksAndFilters{
+  display:flex;
+  justify-content: space-between;
+}
+.filterBars{
+  max-width: 600px;
+}
