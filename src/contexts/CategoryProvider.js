@@ -9,8 +9,10 @@ export function CategoryProvider( {children} )
         const res = await fetch("/api/categories");
         const responseJson = await res.json();
         const categories = responseJson?.categories;
-        dispatch({type:"setCategory",payload:categories});
+        const catNames = categories.map(({categoryName})=>categoryName)
+        dispatch({type:"setCategory",payload:catNames});
     }
+    console.log(bookState?.categories);
     useEffect(()=>{getCategory()},[]);
     return (<div>
         <CategoryContext.Provider value={{bookState,dispatch}}>
