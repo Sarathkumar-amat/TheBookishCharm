@@ -6,6 +6,7 @@ import { Landing } from "./pages/Landing";
 import { ProductListing } from "./pages/ProductListing";
 import { useContext } from "react";
 import { ProductContext } from "./contexts/ProductProvider";
+import { Cart } from "./pages/Cart";
 
 function App() {
   const {dispatch} = useContext(ProductContext);
@@ -18,6 +19,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />
+      <Route path="/cart" element={<Cart/>} />
         <Route path="/mockman" element={<MockAPI/>}/>
         </Routes>
     </div>
