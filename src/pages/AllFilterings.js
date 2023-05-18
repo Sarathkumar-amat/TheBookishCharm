@@ -9,7 +9,7 @@ export function AllFilterings()
     return (<div>
          <ul id="catStyle"> {bookState.categories?.map(category=>
             <li class="individualCat">
-                <input class="categoryName" type="checkbox" 
+                <input class="categoryName" checked={bookState.categoryFilters?.includes(category)} type="checkbox" 
                 onClick={()=>dispatch({type:"catFilter",payload:category})} />
                 <label for="categoryName">{category}</label>
             </li>)}</ul>

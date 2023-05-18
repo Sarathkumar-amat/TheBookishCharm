@@ -1,4 +1,4 @@
-import { Routes,Route } from "react-router-dom";
+import { Routes,Route, useNavigate } from "react-router-dom";
 import "./App.css";
 import logo from "./logo.png";
 import MockAPI from "./MockAPI";
@@ -9,13 +9,19 @@ import { ProductContext } from "./contexts/ProductProvider";
 import { Cart } from "./pages/Cart";
 
 function App() {
-  const {dispatch} = useContext(ProductContext);
+  const {bookState, dispatch} = useContext(ProductContext);
+  const navigate = useNavigate();
+  const searchHandler = (event)=>{
+    dispatch({type:"searchByText",payload:event.target.value});
+    navigate("/bookListing");
+  }
   return (
     <div className="App">
       <nav>
             <input type="text" placeholder="search book name" 
-            onChange={(event)=>dispatch({type:"searchByText",payload:event.target.value})}/>
+            onChange={(event)=>searchHandler(event)}/>
         </nav>
+        {/* {bookState.searchText!==""&& navigate("/bookListing")} */}
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />

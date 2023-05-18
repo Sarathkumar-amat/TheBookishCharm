@@ -3,6 +3,7 @@
     displayBooks:[],
     categoryFilters: [],
     categories:[],
+    categoryDetails:[],
     sortType:"",
     searchText:"",
     cartItems:[]
@@ -14,6 +15,8 @@ export function reducerFunc(state,action){
             return {...state,allBooks:action.payload,displayBooks:action.payload};
         case "setCategory":
             return {...state,categories:action.payload};
+        case "setCategoryObject":
+            return {...state,categoryDetails:action.payload}
         case "catFilter":
             let newCat=[];
             if(state.categoryFilters?.find(element=>element===action.payload)){

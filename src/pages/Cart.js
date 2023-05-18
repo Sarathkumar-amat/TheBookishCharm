@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { ProductContext } from "../contexts/ProductProvider"
+import { CheckOutCard } from "../components/CheckOutCard";
 
 export function Cart()
 {
@@ -7,8 +8,10 @@ export function Cart()
     const itemsToDisplay = bookState?.cartItems;
     return (<div>
         <h1>No of products in cart</h1>
-        <ul>{itemsToDisplay?.map(({id,title,image,quantity})=>
-        <li key={id}>Name: {title}
+        <ul>{itemsToDisplay?.map(({id,title,image,quantity,price})=>
+        <li key={id}>
+            Name: {title}
+            Price: {price}
         
         <button onClick={()=>dispatch({type:"increaseQuantity",payload:id})}>+</button>Quantity: {quantity}
         <button onClick={()=>dispatch({type:"decreaseQuantity",payload:id})}>-</button>
@@ -17,5 +20,6 @@ export function Cart()
         </li>
         
         )}</ul>
+        <CheckOutCard allCartitems={itemsToDisplay} />
         </div>)
 }

@@ -12,6 +12,7 @@ export function CategoryProvider( {children} )
         const categories = responseJson?.categories;
         const catNames = categories.map(({categoryName})=>categoryName)
         dispatch({type:"setCategory",payload:catNames});
+        dispatch({type:"setCategoryObject",payload:categories});
     }
     // console.log(bookState?.categories);
     // console.log(bookState?.sortType);
