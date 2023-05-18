@@ -4,6 +4,7 @@
 }
 .sortPrice{
     display: flex;
+    margin-left:30px;
 }
 #catStyle{
     display: flex;

@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 li{
@@ -11,8 +11,8 @@ li{
 }
 .booksAndFilters{
   display:flex;
-  justify-content: space-between;
+  
 }
 .filterBars{
-  max-width: 600px;
+  min-width: 200px;
 }

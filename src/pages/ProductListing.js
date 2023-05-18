@@ -27,12 +27,12 @@ export function ProductListing()
         <h1>List of all products</h1>
         <div class="booksAndFilters">
             
-        <div class="filterBars"><AllFilterings /></div>
-        <ul id="bookList">{displayValue?.map((book)=>
-        <li>
-            <BookCard bookObj={book} />
-        </li>
-        )}</ul>
+            <div class="filterBars"><AllFilterings /></div>
+            <ul id="bookList">{displayValue?.map((book)=>
+            <div>
+                <BookCard bookObj={book} />
+            </div>
+            )}</ul>
         </div>
     </div>)
 }
