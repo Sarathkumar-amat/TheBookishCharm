@@ -6,7 +6,8 @@
     categoryDetails:[],
     sortType:"",
     searchText:"",
-    cartItems:[]
+    cartItems:[],
+    wishListItems:[]
 }
 
 export function reducerFunc(state,action){
@@ -47,6 +48,13 @@ export function reducerFunc(state,action){
             const decreaseItem = {...getItem,quantity:updatedQuantity};
             const updatedCart = state.cartItems.map((item)=>item.id===action.payload?decreaseItem:item);
             return {...state,cartItems:updatedCart};
+        case "addToWishList":
+            return {...state,wishListItems:[...state.wishListItems,action.payload]};
+        case "removeFromWishList":
+            const newWishList = state.wishListItems.filter(({id})=>id!==action.payload);
+            return {...state,wishListItems:newWishList};
+        
+                
     }
     
 }

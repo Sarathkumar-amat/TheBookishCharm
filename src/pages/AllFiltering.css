@@ -1,3 +1,6 @@
+.filterings{
+    margin-left:20px;
+}
 #sortInputs{
     display:flex;
     flex-direction: column;

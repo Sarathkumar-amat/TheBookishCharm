@@ -1,0 +1,76 @@
+.whole-nav{
+    position:sticky;
+    top:0;
+    z-index: 10;
+    background-color: beige;
+}
+.nav-bar{
+    display: flex;
+    justify-content: space-around;
+}
+.search-bar{
+    display: flex;
+    align-self: center;
+    border:1px solid black;
+    padding:0.5rem 1rem;
+    width:420px;
+    border-radius: 5px;
+    background: white;
+  
+}
+.search-bar input{
+    outline:none;
+    border:none;
+}
+.header-name{
+    text-align: left;
+    left:0;
+}
+.header-name h1{
+    color: #9a9a9a;
+    text-decoration: none;
+}
+.header-name Link{
+    text-decoration: none;
+}
+.various-routes{
+    display: flex;
+    justify-content: space-around;
+    gap:2rem;
+}
+.login-button{
+    align-self: center;
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+}
+.wishList-link
+{
+    display: flex;
+    position: relative;
+    align-self: center;
+    
+}
+#headerLink{
+    text-decoration: none;
+}
+.wishList-link:hover{
+    cursor: pointer;
+}
+.wishList-link div{
+    position: absolute;
+    justify-content: center;
+    color:white;
+    font-weight: bold;
+    top:0;
+    right:0;
+    background-color: red;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    font-size: .8rem;
+    transform: translate(50%,-50%);
+    border-radius: 20px ;
+}

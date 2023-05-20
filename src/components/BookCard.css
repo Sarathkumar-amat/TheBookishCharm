@@ -1,0 +1,24 @@
+.bookStyle{
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.3);
+    padding:10px;
+    width:250px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border-radius: 5px;
+}
+.likeButton{
+    top:0;
+    padding: 0;
+    position: absolute;
+    right:0;
+   
+}
+.likeButton button{
+    background-color: white;
+    border: none;
+    
+}
+.imgLike{
+    position: relative;
+}

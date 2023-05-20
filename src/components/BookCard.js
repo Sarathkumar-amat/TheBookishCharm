@@ -1,6 +1,8 @@
 import { useContext } from "react"
 import { ProductContext } from "../contexts/ProductProvider"
 import {Link, useNavigate} from "react-router-dom";
+import "./BookCard.css";
+
 export function BookCard({bookObj})
 {
     const {id,title,image,price,categoryName} = bookObj;
@@ -8,7 +10,6 @@ export function BookCard({bookObj})
     const navigate = useNavigate();
 
     const bookStyle = {
-        border:"1px solid black",
         margin:"5px"
     }
     const handleAddtoCart = (bookObj)=>{
@@ -18,9 +19,26 @@ export function BookCard({bookObj})
     const checkBookinCart = (boodId)=>{
         return bookState.cartItems?.find(({id})=>id===boodId)?true:false;
     }
+    const checkBookinWishList = (bookId)=>{
+        return bookState.wishListItems?.find(({id})=>id===bookId)?true:false;
+    }
+
     return(<div>
-        <li style={bookStyle}>
+        <li className="bookStyle" style={bookStyle}>
+        <div className="imgLike">
+           
+            <div className="likeButton">
+                {!checkBookinWishList(id) && 
+                <button onClick={()=>dispatch({type:"addToWishList",payload:bookObj})}>
+                    <i class="material-symbols-outlined">favorite</i> 
+                </button>}
+                {checkBookinWishList(id) && 
+                <button style={{color:"red"}} onClick={()=>dispatch({type:"removeFromWishList",payload:id})}>
+                    <i class="red-fav material-icons-outlined">favorite</i>
+                </button>}
+            </div>
             <img height="200px" width="200px" src={image} alt={title}/>
+        </div>
             <p>Title: {title}</p>
             <p>Price: {price}</p>
             <p>Category: {categoryName}</p>

@@ -2,6 +2,7 @@ import { useContext, useEffect,useState } from "react";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import { ProductContext } from "../contexts/ProductProvider";
+import "./Landing.css"
 
 export function Landing()
 {
@@ -13,12 +14,12 @@ export function Landing()
     }
     return (<div>
         
-        <h1>This is the Landing page</h1>
-        <p>Please select one of the following category</p>
-       <div> {bookState.categoryDetails?.map(({categoryName})=>
-            <div>
-               
-                <button onClick={()=>clickHandler(categoryName)}>{categoryName}</button><br/>
+       
+        <p className="welcome-text">Please select one of the available book categories</p>
+       <div className="category-div"> {bookState.categoryDetails?.map(({categoryName,description})=>
+            <div  onClick={()=>clickHandler(categoryName)} className="category-style">
+                <h2>{categoryName}</h2><br/>
+                <p>{description}</p>
             </div>
         
         )}</div>

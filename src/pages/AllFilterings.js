@@ -6,14 +6,16 @@ export function AllFilterings()
 {
     const {bookState,dispatch} = useContext(ProductContext);
 
-    return (<div>
+    return (<div className="filterings">
+        <h3>Filters</h3>
+        <h4>Category</h4>
          <ul id="catStyle"> {bookState.categories?.map(category=>
             <li class="individualCat">
                 <input class="categoryName" checked={bookState.categoryFilters?.includes(category)} type="checkbox" 
                 onClick={()=>dispatch({type:"catFilter",payload:category})} />
                 <label for="categoryName">{category}</label>
             </li>)}</ul>
-        <p>Sort</p>
+        <h4>Sort</h4>
         <div id="sortInputs">
             <div class="sortPrice">
                 <input type="radio" class="sort" name="sortByPrice" 

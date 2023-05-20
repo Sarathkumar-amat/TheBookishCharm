@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import "../App.css";
+import "./ProductList.css"
 
 
 import { ProductContext } from "../contexts/ProductProvider";
@@ -22,17 +23,19 @@ export function ProductListing()
     displayValue = SortByPrice(displayValue);
     displayValue = SearchFilter(displayValue);
     
-    
     return (<div>
-        <h1>List of all products</h1>
+       
         <div class="booksAndFilters">
             
             <div class="filterBars"><AllFilterings /></div>
-            <ul id="bookList">{displayValue?.map((book)=>
-            <div>
-                <BookCard bookObj={book} />
+           <div>
+                <h2>List of all products</h2>
+                <ul id="bookList">{displayValue?.map((book)=>
+                <div>
+                    <BookCard bookObj={book} />
+                </div>
+                )}</ul>
             </div>
-            )}</ul>
         </div>
     </div>)
 }

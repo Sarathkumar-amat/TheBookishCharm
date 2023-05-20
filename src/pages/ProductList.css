@@ -1,0 +1,10 @@
+#bookList{
+    display:flex;
+    flex-wrap: wrap;
+  }
+.booksAndFilters{
+    display:flex;  
+  }
+.filterBars{
+    min-width: 200px;
+  }
