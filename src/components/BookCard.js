@@ -5,7 +5,7 @@ import "./BookCard.css";
 
 export function BookCard({bookObj})
 {
-    const {id,title,image,price,categoryName} = bookObj;
+    const {id,title,image,price,categoryName,author,discount} = bookObj;
     const {bookState,dispatch} = useContext(ProductContext);
     const navigate = useNavigate();
 
@@ -37,11 +37,13 @@ export function BookCard({bookObj})
                     <i class="red-fav material-icons-outlined">favorite</i>
                 </button>}
             </div>
-            <img height="200px" width="200px" src={image} alt={title}/>
+            <img height="200px" width="100%" src={image} alt={title}/>
         </div>
-            <p>Title: {title}</p>
-            <p>Price: {price}</p>
-            <p>Category: {categoryName}</p>
+            <p id="title">{title}</p>
+            <p id="author">{author}</p>
+            <p id="finalPrice">{price-price*(discount/100)}</p>
+            <p id="orgPrice">{price}</p>
+            <p>from {categoryName}</p>
             {checkBookinCart(id) && <button onClick={()=>navigate("/cart")}>Go to Cart</button>}
             {!checkBookinCart(id) &&<button onClick={()=>handleAddtoCart(bookObj)}>Add to Cart</button>}
            
