@@ -16,13 +16,8 @@ function App() {
 
   return (
     <div className="App">
-      
-        
-          
-         <Navigation />
-          
+      <Navigation />
         {/* {bookState.searchText!==""&& navigate("/bookListing")} */}
-  
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />

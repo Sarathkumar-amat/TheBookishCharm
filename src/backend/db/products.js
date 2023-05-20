@@ -14,7 +14,7 @@ export const products = [
     image:"https://i.postimg.cc/wjWCqRFd/you-can-win.jpg",
     // image:"https://rukminim1.flixcart.com/image/612/612/kufuikw0/book/x/s/w/atomic-habits-original-imag7kbzg2fu8rjv.jpeg?q=70",
     categoryName: "non-fiction",
-    rating:3.5
+    rating:2.5
   },
   {
     _id: uuid(),

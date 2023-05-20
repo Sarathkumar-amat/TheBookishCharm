@@ -4,10 +4,12 @@
     categoryFilters: [],
     categories:[],
     categoryDetails:[],
+    priceRange:3000,
+    stars:null,
     sortType:"",
     searchText:"",
     cartItems:[],
-    wishListItems:[]
+    wishListItems:[],
 }
 
 export function reducerFunc(state,action){
@@ -18,6 +20,8 @@ export function reducerFunc(state,action){
             return {...state,categories:action.payload};
         case "setCategoryObject":
             return {...state,categoryDetails:action.payload}
+        case "priceFilter":
+            return {...state,priceRange:Number(action.payload)}
         case "catFilter":
             let newCat=[];
             if(state.categoryFilters?.find(element=>element===action.payload)){
@@ -27,10 +31,14 @@ export function reducerFunc(state,action){
                 newCat = [...state.categoryFilters,action.payload];
             }
             return {...state,categoryFilters:newCat};
+        case "starFilter":
+            return {...state,stars:action.payload};
         case "sort":
             return {...state,sortType:action.payload};
         case "searchByText":
             return {...state,searchText:action.payload};
+        case "clearFilter":
+            return {...state,categoryFilters:[],priceRange:3000,stars:null, sortType:"",searchText:""}
         case "addToCart":
             const cartItem = {...action.payload,quantity:1}
             return {...state,cartItems:[...state.cartItems,cartItem]};

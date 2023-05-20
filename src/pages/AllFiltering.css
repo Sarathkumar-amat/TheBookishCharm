@@ -1,9 +1,21 @@
 .filterings{
     margin-left:20px;
+    margin-right:10px;
 }
 #sortInputs{
     display:flex;
     flex-direction: column;
+    margin-left:-20px;
+}
+.fltrHeader{
+    display: flex;
+    justify-content: space-between;
+}
+.clrFltrbtn{
+    text-decoration: underline;
+}
+.clrFltrbtn:hover{
+    cursor: pointer;
 }
 .sortPrice{
     display: flex;
@@ -12,7 +24,23 @@
 #catStyle{
     display: flex;
     flex-direction: column;
+    margin-left:-25px;
 }
 .individualCat{
     display: flex;
+}
+.ratingFilter{
+    display: flex;
+    flex-direction: column;
+}
+.priceRange{
+    display: flex;
+    flex-direction: column;
+}
+.priceCheckPoints{
+    display: flex;
+}
+ #midPrice{
+    margin-right:50px;
+    margin-left:50px;
 }

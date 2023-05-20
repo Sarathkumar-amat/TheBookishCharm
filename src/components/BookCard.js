@@ -10,7 +10,7 @@ export function BookCard({bookObj})
     const navigate = useNavigate();
 
     const bookStyle = {
-        margin:"5px"
+        margin:"20px"
     }
     const handleAddtoCart = (bookObj)=>{
         alert("Product added to Cart");

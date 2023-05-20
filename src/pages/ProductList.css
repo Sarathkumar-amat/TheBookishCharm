@@ -6,5 +6,6 @@
     display:flex;  
   }
 .filterBars{
-    min-width: 200px;
+    min-width: 240px;
+    border-right:5px solid black;
   }

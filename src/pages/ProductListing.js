@@ -10,6 +10,8 @@ import { AllFilterings } from "./AllFilterings";
 import { SortByPrice } from "../Filters/SortbyPrice";
 import { SearchFilter } from "../Filters/SearchFilter";
 import { BookCard } from "../components/BookCard";
+import { StarFilter } from "../Filters/StarFilter";
+import { PriceFilter } from "../Filters/PriceFilter";
 
 
 export function ProductListing()
@@ -22,7 +24,8 @@ export function ProductListing()
     displayValue = ApplyCategoryFilter(bookState.categoryFilters);
     displayValue = SortByPrice(displayValue);
     displayValue = SearchFilter(displayValue);
-    
+    displayValue = StarFilter(displayValue);
+    displayValue = PriceFilter(displayValue);
     return (<div>
        
         <div class="booksAndFilters">
