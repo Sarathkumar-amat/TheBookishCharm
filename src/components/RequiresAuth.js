@@ -1,8 +1,9 @@
-import { useLocation } from "react-router-dom";
+import { Navigate,useLocation } from "react-router-dom";
 
-export default function RequiresAuth({children,isLoggedin})
+export default function RequiresAuth({children})
 {
+    const token = localStorage.getItem("token");
     const location = useLocation();
 
-    return (<div>{isLoggedin?children:<Navigate to="/login" state={{from:location}}/>}</div>)
+    return (<div>{token?children:<Navigate to="/login" state={{from:location}}/>}</div>)
 }

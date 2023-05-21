@@ -12,9 +12,15 @@ export function Landing()
         dispatch({type:"catFilter",payload:category})
         navigate("/bookListing");
     }
+    const handleSignout = ()=>{
+        localStorage.removeItem("token");
+    }
     return (<div>
         
-       
+        <Link to="/signUp">Sign Up</Link>
+        <button onClick={handleSignout}>Sign out</button>
+        <Link to="/login">Login</Link>
+        
         <p className="welcome-text">Please select one of the available book categories</p>
        <div className="category-div"> {bookState.categoryDetails?.map(({categoryName,description})=>
             <div  onClick={()=>clickHandler(categoryName)} className="category-style">

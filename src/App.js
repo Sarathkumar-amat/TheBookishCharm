@@ -9,6 +9,9 @@ import { ProductContext } from "./contexts/ProductProvider";
 import { Cart } from "./pages/Cart";
 import { WishList } from "./pages/WishList";
 import { Navigation } from "./components/Navigation";
+import { SignUp } from "./pages/SignUp";
+import RequiresAuth from "./components/RequiresAuth";
+import { Login } from "./pages/Login";
 
 function App() {
   const {bookState, dispatch} = useContext(ProductContext);
@@ -21,11 +24,18 @@ function App() {
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />
-      <Route path="/cart" element={<Cart/>} />
+      <Route path="/cart" 
+      
+      element={
+        <RequiresAuth>
+          <Cart/>
+      </RequiresAuth>} />
       <Route path="/wishList" element={<WishList />} />
       <Route path="/mockman" element={<MockAPI/>}/>
-        </Routes>
+      <Route path="/signUp" element={<SignUp/>}/>
+      <Route path="/login" element={<Login />}/>
 
+      </Routes>
     </div>
   );
 }
