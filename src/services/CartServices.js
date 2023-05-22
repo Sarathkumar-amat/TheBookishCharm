@@ -24,7 +24,7 @@ export const addToCart = async (product,token,dispatch)=>{
 
 export const removeFromCart = async (id,token,dispatch)=>{
     try{
-        const {data:{cart},} = await axios.delete(`api/user/cart/${id}`,
+        const {data:{cart}} = await axios.delete(`api/user/cart/${id}`,
                             {
                                 headers:{
                                 authorization: token,
@@ -40,7 +40,27 @@ export const removeFromCart = async (id,token,dispatch)=>{
     }
    
 }
-
+export const updatedQuantityinCart = async(id,dispatch,token,updateType)=>
+{
+    try{
+        const {data:{cart}} = await axios.post(`api/user/cart/${id}`,{
+            action:{
+                type:updateType==="+"?"increment":"decrement",
+            },
+            
+        },
+        {
+            headers:{
+            authorization:token
+        },
+    }
+        )
+        dispatch({type:"increaseQuantity",payload:cart});
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 // export const removeFromCart = async () =>
 // {
 //     try{

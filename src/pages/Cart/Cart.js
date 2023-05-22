@@ -2,18 +2,21 @@ import { useContext } from "react"
 import { ProductContext } from "../../contexts/ProductProvider"
 import { CheckOutCard } from "../../components/CheckOutCard";
 import "./Cart.css";
-import { removeFromCart } from "../../services/CartServices";
+import { removeFromCart, updatedQuantityinCart } from "../../services/CartServices";
 
 export function Cart()
 {
     const {bookState,dispatch} = useContext(ProductContext);
     const itemsToDisplay = bookState?.cartItems;
+    const token = localStorage.getItem("token");
 
     const handleRemoveFromCrt = (id)=>{
-        const token = localStorage.getItem("token");
-        console.log(token);
-        console.log(id);
+        
         removeFromCart(id,token,dispatch);
+    }
+    const modifyQty = (id,type)=>
+    {
+        updatedQuantityinCart(id,dispatch,token,type)
     }
 
     return (<div className="cart-container">
@@ -31,9 +34,9 @@ export function Cart()
                     </div>
                 Quantity
                     <div className="qty-reduce">
-                        <button className="add" onClick={()=>dispatch({type:"increaseQuantity",payload:_id})}>+</button>
+                        <button className="add" onClick={()=>modifyQty(_id,"+")}>+</button>
                         <div id="qty">{qty}</div>
-                        <button className="remove" onClick={()=>dispatch({type:"decreaseQuantity",payload:_id})}>-</button>
+                        <button disabled={qty<=1} className="remove" onClick={()=>modifyQty(_id,"-")}>-</button>
                     </div>
                 </div>
         </div>

@@ -3,10 +3,11 @@ import { ProductContext } from "../../../contexts/ProductProvider"
 import {Link, useNavigate} from "react-router-dom";
 import "./BookCard.css";
 import { addToCart } from "../../../services/CartServices";
+import { addToWishList, removeFromWishList } from "../../../services/WishListServices";
 
 export function BookCard({bookObj})
 {
-    const {id,title,image,price,categoryName,author,discount,rating} = bookObj;
+    const {_id,id,title,image,price,categoryName,author,discount,rating} = bookObj;
     const {bookState,dispatch} = useContext(ProductContext);
     const token = localStorage.getItem("token")
     const navigate = useNavigate();
@@ -21,6 +22,12 @@ export function BookCard({bookObj})
     const checkBookinCart = (boodId)=>{
         return bookState.cartItems?.find(({id})=>id===boodId)?true:false;
     }
+    const handleAddtoWish = (bookObj)=>{
+        addToWishList(token,dispatch,bookObj);
+    }
+    const handleRemoveFromWish = (bookId)=>{
+        removeFromWishList(bookId,token,dispatch);
+    }
     const checkBookinWishList = (bookId)=>{
         return bookState.wishListItems?.find(({id})=>id===bookId)?true:false;
     }
@@ -31,11 +38,11 @@ export function BookCard({bookObj})
            
             <div className="likeButton">
                 {!checkBookinWishList(id) && 
-                <button onClick={()=>dispatch({type:"addToWishList",payload:bookObj})}>
+                <button onClick={()=>handleAddtoWish(bookObj)}>
                     <i class="material-symbols-outlined">favorite</i> 
                 </button>}
                 {checkBookinWishList(id) && 
-                <button style={{color:"red"}} onClick={()=>dispatch({type:"removeFromWishList",payload:id})}>
+                <button style={{color:"red"}} onClick={()=>handleRemoveFromWish(_id)}>
                     <i class="red-fav material-icons-outlined">favorite</i>
                 </button>}
             </div>
