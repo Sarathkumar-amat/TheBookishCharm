@@ -40,11 +40,9 @@ export function reducerFunc(state,action){
         case "clearFilter":
             return {...state,categoryFilters:[],priceRange:3000,stars:null, sortType:"",searchText:""}
         case "addToCart":
-            const cartItem = {...action.payload,quantity:1}
-            return {...state,cartItems:[...state.cartItems,cartItem]};
+            return {...state,cartItems:[...action.payload]};
         case "removeFromCart":
-            const removedCart = state.cartItems.filter(({id})=>id!==action.payload);
-            return {...state,cartItems:removedCart};
+            return {...state,cartItems:[...action.payload]};
         case "increaseQuantity":
             const findItem = state.cartItems.find(({id})=>id===action.payload);
             const updatedItem = {...findItem,quantity:findItem.quantity+1};

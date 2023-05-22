@@ -17,7 +17,6 @@ export function BookCard({bookObj})
     const handleAddtoCart = (bookObj)=>{
         alert("Product added to Cart");
         addToCart(bookObj,token,dispatch);
-        dispatch({type:"addToCart",payload:bookObj});
     }
     const checkBookinCart = (boodId)=>{
         return bookState.cartItems?.find(({id})=>id===boodId)?true:false;

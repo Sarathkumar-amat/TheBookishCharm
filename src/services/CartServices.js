@@ -4,16 +4,35 @@ import axios from "axios"
 export const addToCart = async (product,token,dispatch)=>{
     try{
         console.log(product);
-        const response = await axios.post("/api/user/cart",{product,},
+        const {data:{cart}} = await axios.post("/api/user/cart",{product,},
                             {
                                 headers:{
                                 authorization: token,
                                 }
                             }
                             )
-        console.log(response.data);
-        console.log(response.data.cart[4]);
-        //  dispatch({type:"addToCart",payload:response.})                   
+        console.log(cart);
+         dispatch({type:"addToCart",payload:cart})                   
+    }
+    catch(error)
+    {
+        console.log("Error in addToCart service", error);
+    }
+   
+}
+
+
+export const removeFromCart = async (id,token,dispatch)=>{
+    try{
+        const {data:{cart},} = await axios.delete(`api/user/cart/${id}`,
+                            {
+                                headers:{
+                                authorization: token,
+                                }
+                            }
+                            )
+        console.log(cart);
+         dispatch({type:"removeFromCart",payload:cart})                   
     }
     catch(error)
     {

@@ -1,15 +1,24 @@
 import { useContext } from "react"
-import { ProductContext } from "../contexts/ProductProvider"
-import { CheckOutCard } from "../components/CheckOutCard";
+import { ProductContext } from "../../contexts/ProductProvider"
+import { CheckOutCard } from "../../components/CheckOutCard";
 import "./Cart.css";
+import { removeFromCart } from "../../services/CartServices";
 
 export function Cart()
 {
     const {bookState,dispatch} = useContext(ProductContext);
     const itemsToDisplay = bookState?.cartItems;
+
+    const handleRemoveFromCrt = (id)=>{
+        const token = localStorage.getItem("token");
+        console.log(token);
+        console.log(id);
+        removeFromCart(id,token,dispatch);
+    }
+
     return (<div className="cart-container">
-        <ul className="cart-list">{itemsToDisplay?.map(({id,title,image,quantity,price,author,discount})=>
-        <li className="cartItem" key={id}>
+        <ul className="cart-list">{itemsToDisplay?.map(({_id,title,image,qty,price,author,discount})=>
+        <li className="cartItem" key={_id}>
             <div className="prod-details">
                 <img src={image} height="150px" width="100px" alt={title} />
                 <div className="otherDetails">
@@ -22,13 +31,13 @@ export function Cart()
                     </div>
                 Quantity
                     <div className="qty-reduce">
-                        <button className="add" onClick={()=>dispatch({type:"increaseQuantity",payload:id})}>+</button>
-                        <div id="qty">{quantity}</div>
-                        <button className="remove" onClick={()=>dispatch({type:"decreaseQuantity",payload:id})}>-</button>
+                        <button className="add" onClick={()=>dispatch({type:"increaseQuantity",payload:_id})}>+</button>
+                        <div id="qty">{qty}</div>
+                        <button className="remove" onClick={()=>dispatch({type:"decreaseQuantity",payload:_id})}>-</button>
                     </div>
                 </div>
         </div>
-        <button onClick={()=>dispatch({type:"removeFromCart",payload:id})}>Remove from Cart</button>
+        <button onClick={()=>handleRemoveFromCrt(_id)}>Remove from Cart</button>
         
         </li>
         
