@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { ProductContext } from "../contexts/ProductProvider"
+import { ProductContext } from "../../../contexts/ProductProvider"
 import "./AllFiltering.css";
 
 export function AllFilterings()

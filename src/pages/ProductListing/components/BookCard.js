@@ -1,12 +1,14 @@
 import { useContext } from "react"
-import { ProductContext } from "../contexts/ProductProvider"
+import { ProductContext } from "../../../contexts/ProductProvider"
 import {Link, useNavigate} from "react-router-dom";
 import "./BookCard.css";
+import { addToCart } from "../../../services/CartServices";
 
 export function BookCard({bookObj})
 {
     const {id,title,image,price,categoryName,author,discount,rating} = bookObj;
     const {bookState,dispatch} = useContext(ProductContext);
+    const token = localStorage.getItem("token")
     const navigate = useNavigate();
 
     const bookStyle = {
@@ -14,6 +16,7 @@ export function BookCard({bookObj})
     }
     const handleAddtoCart = (bookObj)=>{
         alert("Product added to Cart");
+        addToCart(bookObj,token,dispatch);
         dispatch({type:"addToCart",payload:bookObj});
     }
     const checkBookinCart = (boodId)=>{

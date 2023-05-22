@@ -1,17 +1,16 @@
 import {useContext} from "react";
-import "../App.css";
 import "./ProductList.css"
 
 
-import { ProductContext } from "../contexts/ProductProvider";
-import { CategoryContext } from "../contexts/CategoryProvider";
-import { ApplyCategoryFilter } from "../Filters/ApplyCategoryFilter";
-import { AllFilterings } from "./AllFilterings";
-import { SortByPrice } from "../Filters/SortbyPrice";
-import { SearchFilter } from "../Filters/SearchFilter";
-import { BookCard } from "../components/BookCard";
-import { StarFilter } from "../Filters/StarFilter";
-import { PriceFilter } from "../Filters/PriceFilter";
+import { ProductContext } from "../../contexts/ProductProvider";
+import { CategoryContext } from "../../contexts/CategoryProvider";
+import { ApplyCategoryFilter } from "./Filters/FilterMethods/ApplyCategoryFilter";
+import { AllFilterings } from "./Filters/AllFilterings";
+import { SortByPrice } from "./Filters/FilterMethods/SortbyPrice";
+import { SearchFilter } from "./Filters/FilterMethods/SearchFilter";
+import { BookCard } from "./components/BookCard";
+import { StarFilter } from "./Filters/FilterMethods/StarFilter";
+import { PriceFilter } from "./Filters/FilterMethods/PriceFilter";
 
 
 export function ProductListing()

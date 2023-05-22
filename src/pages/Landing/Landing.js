@@ -1,7 +1,7 @@
 import { useContext, useEffect,useState } from "react";
 import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
-import { ProductContext } from "../contexts/ProductProvider";
+import { ProductContext } from "../../contexts/ProductProvider";
 import "./Landing.css"
 
 export function Landing()
