@@ -1,9 +1,10 @@
 import { useContext } from "react"
 import { ProductContext } from "../../../contexts/ProductProvider"
-import {Link, useNavigate} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import "./BookCard.css";
-import { addToCart } from "../../../services/CartServices";
-import { addToWishList, removeFromWishList } from "../../../services/WishListServices";
+import { checkCart, checkWishList } from "../../../backend/utils/checkBook";
+import { handleAddtoCart } from "../../../backend/utils/cartHandler";
+import { handleAddtoWish, handleRemoveFromWish } from "../../../backend/utils/wishListHandler";
 
 export function BookCard({bookObj})
 {
@@ -15,38 +16,23 @@ export function BookCard({bookObj})
     const bookStyle = {
         margin:"20px"
     }
-    const handleAddtoCart = (bookObj)=>{
-        alert("Product added to Cart");
-        addToCart(bookObj,token,dispatch);
-    }
-    const checkBookinCart = (boodId)=>{
-        return bookState.cartItems?.find(({id})=>id===boodId)?true:false;
-    }
-    const handleAddtoWish = (bookObj)=>{
-        addToWishList(token,dispatch,bookObj);
-    }
-    const handleRemoveFromWish = (bookId)=>{
-        removeFromWishList(bookId,token,dispatch);
-    }
-    const checkBookinWishList = (bookId)=>{
-        return bookState.wishListItems?.find(({id})=>id===bookId)?true:false;
-    }
 
     return(<div>
         <li className="bookStyle" style={bookStyle}>
         <div className="imgLike">
            
+            <img onClick={()=>navigate(`/bookList/book/${id}`)} height="200px" width="100%" src={image} alt={title}/>
             <div className="likeButton">
-                {!checkBookinWishList(id) && 
-                <button onClick={()=>handleAddtoWish(bookObj)}>
+                {!checkWishList(bookState.wishListItems,id) && 
+                <button onClick={()=>handleAddtoWish(bookObj,token,dispatch)}>
                     <i class="material-symbols-outlined">favorite</i> 
                 </button>}
-                {checkBookinWishList(id) && 
-                <button style={{color:"red"}} onClick={()=>handleRemoveFromWish(_id)}>
+                {checkWishList(bookState.wishListItems,id) && 
+                <button style={{color:"red"}} onClick={()=>handleRemoveFromWish(_id,token,dispatch)}>
                     <i class="red-fav material-icons-outlined">favorite</i>
                 </button>}
             </div>
-            <img height="200px" width="100%" src={image} alt={title}/>
+           
         </div>
         <div id="info-rating">
             <div>
@@ -55,7 +41,8 @@ export function BookCard({bookObj})
             </div>
             <div id="star">
                 <p>{rating} </p>
-            <div id="stars"><i class="yellow-fav material-icons-outlined">star</i></div>
+            <div id="stars">
+            <i class="yellow-fav material-icons-outlined">star</i></div>
             </div>
         </div>
         <div id="price-detail">
@@ -64,8 +51,8 @@ export function BookCard({bookObj})
             <p id="off">({discount}% OFF)</p>
         </div>
             <p>from {categoryName}</p>
-            {checkBookinCart(id) && <button onClick={()=>navigate("/cart")}>Go to Cart</button>}
-            {!checkBookinCart(id) &&<button onClick={()=>handleAddtoCart(bookObj)}>Add to Cart</button>}
+            {checkCart(bookState.cartItems,id) && <button onClick={()=>navigate("/cart")}>Go to Cart</button>}
+            {!checkCart(bookState.cartItems,id) &&<button onClick={()=>handleAddtoCart(bookObj,token,dispatch)}>Add to Cart</button>}
            
         </li>
 

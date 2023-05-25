@@ -11,11 +11,8 @@
 .likeButton{
     top:0;
     padding: 0;
-    position: absolute;
+    position: relative;
     right:0;
-}
-#stars::before{
-    
 }
 #stars{
     color:gold;
@@ -32,6 +29,7 @@
 }
 .imgLike{
     position: relative;
+    display: flex;
 }
 .bookStyle p{
     margin-top:0px;
@@ -64,9 +62,9 @@
     display: flex;
 }
 #orgPrice::before,#finalPrice::before{
-    content: "$";
+    content: "₹";
 }
 #info-rating{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }

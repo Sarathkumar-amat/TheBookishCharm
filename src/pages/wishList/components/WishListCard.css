@@ -40,6 +40,6 @@
 #price-detail{
     display: flex;
 }
-{
-
+#orgPrice::before,#finalPrice::before{
+    content: "₹";
 }

@@ -14,6 +14,7 @@ import RequiresAuth from "./components/RequiresAuth";
 import { Login } from "./pages/Login";
 import { ProductListing } from "./pages/ProductListing/ProductListing";
 import { Landing } from "./pages/Landing/Landing";
+import { IndividualProduct } from "./pages/IndividualProduct/IndividualProduct";
 
 function App() {
   const {bookState, dispatch} = useContext(ProductContext);
@@ -36,6 +37,7 @@ function App() {
       <Route path="/mockman" element={<MockAPI/>}/>
       <Route path="/signUp" element={<SignUp/>}/>
       <Route path="/login" element={<Login />}/>
+      <Route path="/bookList/book/:bookId" element={<IndividualProduct />}/>
 
       </Routes>
     </div>

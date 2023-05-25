@@ -17,7 +17,6 @@ export function ProductListing()
 {
     const {bookState,dispatch} = useContext(ProductContext);
    
-    console.log(bookState.displayBooks);
     let displayValue = bookState.displayBooks;
     // displayValue = CheckAndApplyFilter(bookState.categoryFilters);
     displayValue = ApplyCategoryFilter(bookState.categoryFilters);
