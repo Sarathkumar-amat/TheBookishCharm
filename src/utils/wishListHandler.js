@@ -1,4 +1,4 @@
-import { addToWishList, removeFromWishList } from "../../services/WishListServices";
+import { addToWishList, removeFromWishList } from "../services/WishListServices";
 
 export const handleAddtoWish = (bookObj,token,dispatch)=>{
     addToWishList(token,dispatch,bookObj);

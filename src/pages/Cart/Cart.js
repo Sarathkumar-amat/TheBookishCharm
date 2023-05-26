@@ -3,6 +3,7 @@ import { ProductContext } from "../../contexts/ProductProvider"
 import { CheckOutCard } from "../../components/CheckOutCard";
 import "./Cart.css";
 import { removeFromCart, updatedQuantityinCart } from "../../services/CartServices";
+import { toast } from "react-toastify";
 
 export function Cart()
 {
@@ -11,7 +12,9 @@ export function Cart()
     const token = localStorage.getItem("token");
 
     const handleRemoveFromCrt = (id)=>{
-        
+        toast.warning("Book Removed from cart!",{
+            position:toast.POSITION_TOP_RIGHT
+        })
         removeFromCart(id,token,dispatch);
     }
     const modifyQty = (id,type)=>

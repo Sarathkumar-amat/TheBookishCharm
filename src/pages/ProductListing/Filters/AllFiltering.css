@@ -1,6 +1,13 @@
 .filterings{
     margin-left:20px;
     margin-right:10px;
+    position: sticky;
+    z-index: 2;
+    top:0;
+    padding:10px;
+    /* transition: all 0.2s ease-in-out;
+    transition: left 0.5s ease-out; */
+    /* grid-area: aside; */
 }
 #sortInputs{
     display:flex;
@@ -43,4 +50,11 @@
  #midPrice{
     margin-right:50px;
     margin-left:50px;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: darkblue;
+    border-radius: 5px;
 }

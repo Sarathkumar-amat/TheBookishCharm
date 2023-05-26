@@ -1,4 +1,4 @@
-import {useContext} from "react";
+import {useContext, useEffect} from "react";
 import "./ProductList.css"
 
 
@@ -15,7 +15,14 @@ import { PriceFilter } from "./Filters/FilterMethods/PriceFilter";
 
 export function ProductListing()
 {
-    const {bookState,dispatch} = useContext(ProductContext);
+    const {bookState,dispatch,loader,setLoader} = useContext(ProductContext);
+
+    useEffect(()=>{
+        setLoader(true);
+        setTimeout(()=>{
+            setLoader(false);
+        },1000)
+    },[])
    
     let displayValue = bookState.displayBooks;
     // displayValue = CheckAndApplyFilter(bookState.categoryFilters);
@@ -28,7 +35,7 @@ export function ProductListing()
        
         <div class="booksAndFilters">
             
-            <div class="filterBars"><AllFilterings /></div>
+            <div className="filterBars"><AllFilterings /></div>
            <div>
                 <h2>List of all products</h2>
                 <ul id="bookList">{displayValue?.map((book)=>

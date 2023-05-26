@@ -15,15 +15,20 @@ import { Login } from "./pages/Login";
 import { ProductListing } from "./pages/ProductListing/ProductListing";
 import { Landing } from "./pages/Landing/Landing";
 import { IndividualProduct } from "./pages/IndividualProduct/IndividualProduct";
+import { Loader } from "./components/Loader/Loader";
+import { ToastContainer } from "react-toastify";
 
 function App() {
-  const {bookState, dispatch} = useContext(ProductContext);
+  const {bookState, dispatch,loader,setLoader} = useContext(ProductContext);
   const navigate = useNavigate();
 
   return (
     <div className="App">
+    
       <Navigation />
+      {loader && <Loader />}
         {/* {bookState.searchText!==""&& navigate("/bookListing")} */}
+        <ToastContainer />
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />

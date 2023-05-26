@@ -2,10 +2,10 @@ import { useContext } from "react"
 import { ProductContext } from "../../contexts/ProductProvider";
 import { useNavigate, useParams } from "react-router-dom";
 import "./IndividualProduct.css"
-import { calcDiscountedPrice } from "../../backend/utils/discountPrics";
-import { checkCart,checkWishList } from "../../backend/utils/checkBook";
-import { handleAddtoCart } from "../../backend/utils/cartHandler";
-import { handleAddtoWish } from "../../backend/utils/wishListHandler";
+import { calcDiscountedPrice } from "../../utils/discountPrics";
+import { checkCart,checkWishList } from "../../utils/checkBook";
+import { handleAddtoCart } from "../../utils/cartHandler";
+import { handleAddtoWish } from "../../utils/wishListHandler";
 
 export function IndividualProduct()
 {

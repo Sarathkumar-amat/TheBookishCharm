@@ -2,9 +2,9 @@ import { useContext } from "react"
 import { ProductContext } from "../../../contexts/ProductProvider"
 import { useNavigate} from "react-router-dom";
 import "./BookCard.css";
-import { checkCart, checkWishList } from "../../../backend/utils/checkBook";
-import { handleAddtoCart } from "../../../backend/utils/cartHandler";
-import { handleAddtoWish, handleRemoveFromWish } from "../../../backend/utils/wishListHandler";
+import { checkCart, checkWishList } from "../../../utils/checkBook";
+import { handleAddtoCart } from "../../../utils/cartHandler";
+import { handleAddtoWish, handleRemoveFromWish } from "../../../utils/wishListHandler";
 
 export function BookCard({bookObj})
 {
