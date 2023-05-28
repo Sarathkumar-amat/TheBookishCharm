@@ -10,12 +10,18 @@ import { handleAddtoWish } from "../../utils/wishListHandler";
 export function IndividualProduct()
 {
     const {bookId} = useParams();
-    const {bookState,dispatch} = useContext(ProductContext);
+    const {bookState,dispatch,setLoader} = useContext(ProductContext);
     const bookObj = bookState.displayBooks.find(({id})=>id===bookId);
     const token = localStorage.getItem("token");
     const navigate = useNavigate();
 
-
+    if( bookState.displayBooks.length===0)
+    {
+        setLoader(true);
+        return <></>
+    }
+    else{
+        setLoader(false);
     return (<div className="individualProduct">
         <div className="img-details">
             <img height="200px" width="200px" src={bookObj?.image} alt={bookObj?.title}/>
@@ -49,4 +55,5 @@ export function IndividualProduct()
             </div>
         </div>
     </div>)
+}
 }

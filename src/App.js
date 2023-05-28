@@ -26,7 +26,7 @@ function App() {
     <div className="App">
     
       <Navigation />
-      {loader && <Loader />}
+      {loader===true && <Loader />}
         {/* {bookState.searchText!==""&& navigate("/bookListing")} */}
         <ToastContainer />
       <Routes>

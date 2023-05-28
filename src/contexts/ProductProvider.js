@@ -5,7 +5,7 @@ import { CategoryContext } from "./CategoryProvider.js";
 export const ProductContext = createContext();
 export function ProductProvider({children}){
     const {bookState,dispatch} = useContext(CategoryContext);
-    const [loader,setLoader] = useState(true);
+    const [loader,setLoader] = useState(false);
     // let prods = 2;
     const getDetail = async()=>{
         const res = await fetch("/api/products");

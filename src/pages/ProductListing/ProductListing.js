@@ -18,9 +18,9 @@ export function ProductListing()
     const {bookState,dispatch,loader,setLoader} = useContext(ProductContext);
 
     useEffect(()=>{
-        setLoader(true);
+        setLoader(()=>true);
         setTimeout(()=>{
-            setLoader(false);
+            setLoader(()=>false);
         },1000)
     },[])
    

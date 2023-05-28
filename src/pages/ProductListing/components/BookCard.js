@@ -5,6 +5,7 @@ import "./BookCard.css";
 import { checkCart, checkWishList } from "../../../utils/checkBook";
 import { handleAddtoCart } from "../../../utils/cartHandler";
 import { handleAddtoWish, handleRemoveFromWish } from "../../../utils/wishListHandler";
+import { calcDiscountedPrice } from "../../../utils/discountPrics";
 
 export function BookCard({bookObj})
 {
@@ -39,14 +40,14 @@ export function BookCard({bookObj})
                 <p id="title">{title}</p>
                 <p id="author">{author}</p>
             </div>
-            <div id="star">
+            <div id="star-block">
                 <p>{rating} </p>
-            <div id="stars">
+            <div id="star-icon">
             <i class="yellow-fav material-icons-outlined">star</i></div>
             </div>
         </div>
         <div id="price-detail">
-            <p id="finalPrice">{price-price*(discount/100)}</p>
+            <p id="finalPrice">{calcDiscountedPrice(price,discount)}</p>
             <p id="orgPrice">{price}</p>
             <p id="off">({discount}% OFF)</p>
         </div>

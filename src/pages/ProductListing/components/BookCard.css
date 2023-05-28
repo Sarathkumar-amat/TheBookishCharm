@@ -14,11 +14,20 @@
     position: relative;
     right:0;
 }
-#stars{
+#star-icon{
     color:gold;
 }
-#star{
+#star-block{
     display: flex;
+    font-size: 12px;
+    height: fit-content;
+    background-color: green;
+    padding: 5px;
+    border-radius: 5px;
+    color:white;
+}
+#star-icon i{
+    font-size: 15px;
 }
 .likeButton button{
     background-color: white;
@@ -66,5 +75,5 @@
 }
 #info-rating{
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
 }
