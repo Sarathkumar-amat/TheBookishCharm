@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthProvider";
 
 
 function loginReducer(state,action)
@@ -17,6 +18,7 @@ export function Login()
 {
     const navigate = useNavigate();
     const location = useLocation();
+    const {user,setUser} = useContext(AuthContext);
     const [userState,reduceFun] = useReducer(loginReducer,{
         email:"",
         password:""
@@ -27,6 +29,8 @@ export function Login()
                 email:userState.email,
                 password:userState.password
             })
+            console.log(response.data.foundUser);
+            setUser(response.data.foundUser);
             localStorage.setItem("token", response.data.encodedToken);
             navigate(location?.state?.from?.pathname);
         }
@@ -40,6 +44,6 @@ export function Login()
         <label>Password</label>
         <input type="password" onChange={(event)=>
             reduceFun({type:"password",payload:event.target.value})} />
-        <button onClick={loginHandler}>Login</button>
+        <button onClick={loginHandler}>Login with test credentials</button>
     </div>)
 }

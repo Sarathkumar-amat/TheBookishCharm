@@ -17,11 +17,14 @@ import { Landing } from "./pages/Landing/Landing";
 import { IndividualProduct } from "./pages/IndividualProduct/IndividualProduct";
 import { Loader } from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
+import { Profile } from "./pages/Profile";
+import { AuthContext } from "./contexts/AuthProvider";
 
 function App() {
   const {bookState, dispatch,loader,setLoader} = useContext(ProductContext);
+  const {loginState} = useContext(AuthContext);
   const navigate = useNavigate();
-
+  console.log(localStorage.getItem("token"));
   return (
     <div className="App">
     
@@ -42,6 +45,8 @@ function App() {
       <Route path="/mockman" element={<MockAPI/>}/>
       <Route path="/signUp" element={<SignUp/>}/>
       <Route path="/login" element={<Login />}/>
+      <Route path="signUp" element={<SignUp />}/>
+      <Route path="profile" element={<Profile/>}/>
       <Route path="/bookList/book/:bookId" element={<IndividualProduct />}/>
 
       </Routes>
