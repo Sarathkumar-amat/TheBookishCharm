@@ -1,7 +1,7 @@
 import { useContext, useReducer, useState } from "react"
 import axios from "axios";
 import { useLocation, useNavigate,Link } from "react-router-dom";
-import { AuthContext } from "../contexts/AuthProvider";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 function signUpReducer(state,action)
 {
