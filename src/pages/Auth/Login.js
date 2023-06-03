@@ -44,7 +44,8 @@ export function Login()
                 localStorage.setItem("user",  JSON.stringify({ user: response.data.foundUser }));
                 setUser(response.data.foundUser);
                 localStorage.setItem("token", response.data.encodedToken);
-                navigate(location?.state?.from?.pathname);
+                console.log(location);
+                (location?.state===null)?navigate("/bookListing"):navigate(location?.state?.from?.pathname);
             }
         }
         catch(error){
@@ -52,7 +53,7 @@ export function Login()
         }
     }
     return (<div>
-        <form className="LoginDetails" onSubmit={loginHandler}>
+        <form className="LoginDetails" onSubmit={(event)=>loginHandler(event)}>
             <label>Email</label>
             <input placeholder="test@gmail.com" className="loginText" type="email" onChange={(event)=>reduceFun({type:"mail",payload:event.target.value})}/>
             <label>Password</label>
@@ -60,6 +61,7 @@ export function Login()
                 reduceFun({type:"password",payload:event.target.value})} />
             <button onClick={testLoginHandler}>Login with test credentials</button>
             <button>Login</button>
+            <button onClick={()=>navigate("/signUp")}>SignUp</button>
         </form>
     </div>)
 }

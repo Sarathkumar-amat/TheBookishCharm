@@ -2,6 +2,8 @@ import { useContext, useReducer, useState } from "react"
 import axios from "axios";
 import { useLocation, useNavigate,Link } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
+import "./Signup.css"
+
 
 function signUpReducer(state,action)
 {
@@ -37,7 +39,8 @@ export function SignUp()
         
     }
 
-    const signupHandler = async () => {
+    const signupHandler = async (e) => {
+        e.preventDefault();
         try {
         const response =  await axios.post(`/api/auth/signup`,{...sendData});
           // saving the encodedToken in the localStorage;
@@ -48,7 +51,7 @@ export function SignUp()
             localStorage.setItem("user",  JSON.stringify({ user: response.data.createdUser }));
             
             setUser(response.data.createdUser);
-
+            navigate("/bookListing");
             // console.log(loginState.user);
             // navigate(location?.state?.from?.pathname);
           }
@@ -56,18 +59,25 @@ export function SignUp()
           console.log(error);
         }
       };
-    return (<div>
-
-        <label>First Name</label>
-        <input type="text" onChange={(event)=>reduceFun({type:"setFirstName",payload:event.target.value})} />
-        <label>Last Name</label>
-        <input type="text" onChange={(event)=>reduceFun({type:"setLastName",payload:event.target.value})}/>
-        <label>Email</label>
-        <input type="email" onChange={(event)=>reduceFun({type:"setEmail",payload:event.target.value})}/>
-        <label>Password</label>
-        <input type="password" onChange={(event)=>reduceFun({type:"setPassword",payload:event.target.value})} />
-        
-        <button onClick={signupHandler}>Sign up</button>
+    return (<div className="createAccountDetail">
+        <form className="signUpForm" onSubmit={(event)=>signupHandler(event)}>
+            <div className="name">
+                <div className="firstName">
+                    <label for="firstNameInp">First Name</label>
+                    <input className="firstnameInp" type="text" onChange={(event)=>reduceFun({type:"setFirstName",payload:event.target.value})} />
+                </div>
+                <div className="lastName">
+                    <label for="lastNameInp">Last Name</label>
+                    <input className="lastNameInp" type="text" onChange={(event)=>reduceFun({type:"setLastName",payload:event.target.value})}/>
+                </div>
+            </div>
+            <label>Email</label>
+            <input type="email" onChange={(event)=>reduceFun({type:"setEmail",payload:event.target.value})}/>
+            <label>Password</label>
+            <input type="password" onChange={(event)=>reduceFun({type:"setPassword",payload:event.target.value})} />
+            
+            <button>Sign up</button>
+        </form>
         <Link to="/profile">goto Profile</Link>
     </div>)
 }

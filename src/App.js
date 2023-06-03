@@ -17,7 +17,7 @@ import { Landing } from "./pages/Landing/Landing";
 import { IndividualProduct } from "./pages/IndividualProduct/IndividualProduct";
 import { Loader } from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
-import { Profile } from "./pages/Profile";
+import { Profile } from "./pages/profile/Profile";
 import { AuthContext } from "./contexts/AuthProvider";
 
 function App() {
@@ -31,22 +31,21 @@ function App() {
       <Navigation />
       {loader===true && <Loader />}
         {/* {bookState.searchText!==""&& navigate("/bookListing")} */}
-        <ToastContainer />
+        <ToastContainer autoClose={1000}/>
       <Routes>
       <Route path="/" element={<Landing />}/>
       <Route path="/bookListing" element={<ProductListing/>} />
       <Route path="/cart" 
-      
       element={
         <RequiresAuth>
           <Cart/>
       </RequiresAuth>} />
-      <Route path="/wishList" element={<WishList />} />
+      <Route path="/wishList" element={<RequiresAuth> <WishList /> </RequiresAuth>} />
       <Route path="/mockman" element={<MockAPI/>}/>
       <Route path="/signUp" element={<SignUp/>}/>
       <Route path="/login" element={<Login />}/>
       <Route path="signUp" element={<SignUp />}/>
-      <Route path="profile" element={<Profile/>}/>
+      <Route path="profile" element={<RequiresAuth><Profile/></RequiresAuth>}/>
       <Route path="/bookList/book/:bookId" element={<IndividualProduct />}/>
 
       </Routes>

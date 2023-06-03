@@ -1,0 +1,31 @@
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: 50px;
+    text-align: left;
+    /* border: 5px solid black; */
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.3);
+    padding:10px;
+    width: 500px;
+}
+
+.firstName{
+    display: flex;
+    flex-direction: column;
+    margin-right:20px;
+}
+.name{
+    display: flex;
+}
+.lastName{
+    display: flex;
+    flex-direction: column;
+    margin-left:20px;
+}
+.createAccountDetail{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+}

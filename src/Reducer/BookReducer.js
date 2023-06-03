@@ -51,7 +51,8 @@ export function reducerFunc(state,action){
             return {...state,wishListItems:[...action.payload]};
         case "removeFromWishList":
             return {...state,wishListItems:[...action.payload]};
-        
+        case "log_out":
+            return {...state,wishListItems:[],cartItems:[]};
                 
     }
     

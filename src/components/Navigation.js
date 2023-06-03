@@ -31,6 +31,9 @@ export function Navigation()
                     <div>{bookState.cartItems.length}</div>
                     <i class="material-symbols-outlined">shopping_cart</i>
                 </div>
+                <div onClick={()=>navigate("/profile")} className="wishList-link">
+                    profile
+                </div>
             </div>
         </nav>
     </div>)
