@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./CheckOutCard.css";
 export function CheckOutCard({allCartitems})
 {
+    const navigate = useNavigate();
     const totalPrice = allCartitems.reduce((initVal,{price,qty})=>
     initVal+price*qty,0);
     const discountTotal = allCartitems.reduce((initVal,{price,discount,qty})=>
@@ -9,16 +11,17 @@ export function CheckOutCard({allCartitems})
         <h3>Price details</h3>
         <div id="pricePart">
             <p>Price ({allCartitems.length} items):</p> 
-            <p>{totalPrice}</p>
+            <p>₹ {totalPrice}</p>
         </div>
         <div id="discountPart">
             <p>Discount:</p>
-            <p> {discountTotal}</p>
+            <p> - ₹ {discountTotal}</p>
         </div>
         <div id="final-Price">
             <p>TotalAmount:</p>
-            <p>{totalPrice-discountTotal}</p>
+            <p>₹ {totalPrice-discountTotal}</p>
         </div>
+        <button onClick={()=>navigate("/checkout")}>Checkout</button>
     </div>)
 
 }

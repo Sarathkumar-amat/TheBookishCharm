@@ -48,6 +48,11 @@ export function Cart()
         </li>
         
         )}</ul>
-        <CheckOutCard allCartitems={itemsToDisplay} />
+        {itemsToDisplay?.length>0 &&  <CheckOutCard allCartitems={itemsToDisplay} />}
+        {itemsToDisplay?.length<=0 && 
+        <div className="cartText">
+            <h1>No items in Cart! ☹️</h1>
+        </div>
+        }
         </div>)
 }

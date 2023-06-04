@@ -18,3 +18,18 @@
 #title{
     margin-right:10px;
 }
+.profileOrAddress{
+    display: flex;
+    justify-content: space-around;
+}
+.profileButton,.addressButton{
+    padding: 20px;
+    font-size: 20px;
+    background-color: white;
+    color:black;
+    font-weight: bold;
+}
+.profileButton:hover, .addressButton:hover{
+    background-color: black;
+    color:white;
+}

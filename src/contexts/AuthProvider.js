@@ -6,9 +6,12 @@ export function AuthProvider({children})
 {
     const localStorageUser =  JSON.parse(localStorage.getItem("user"));
    const [user,setUser] = useState(localStorageUser?.user);
-   console.log(user)
+  
+
+     
+   const [address,setAddress] = useState("address not set yet");
     return (<div>
-        <AuthContext.Provider value={{user,setUser}}>
+        <AuthContext.Provider value={{user,setUser,address,setAddress}}>
             {children}
         </AuthContext.Provider>
 

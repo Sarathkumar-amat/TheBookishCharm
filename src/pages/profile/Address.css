@@ -1,0 +1,29 @@
+.AddressForm{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.5);
+}
+.currentAddress{
+    border: 1px solid black;
+    padding:10px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.5);
+    margin:20px 0px 20px 0px;
+}
+.AddressForm legend{
+    font-size: x-large;
+    font-weight:bold;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+}
+.addressheading{
+    display: inline-block;
+    font-size: x-large;
+    font-weight:bold;
+    color: white;
+    background-color: black;
+    padding: 5px;
+    box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+
+}

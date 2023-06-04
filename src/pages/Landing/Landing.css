@@ -21,3 +21,52 @@
 .welcome-text{
     text-align: center;
 }
+.coverPage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    /* width:700px; */
+}
+
+.coverImg{
+    /* position: absolute; */
+   
+   
+}
+.coverImg img{
+    width: 1000px;
+    height: 700px;
+
+}
+.hd{
+    position: absolute;
+    font-family: Arial;
+    font-size:xx-large;
+    color: white;
+    /* top:20px; */
+    background-color: rgba(0, 0, 0, 0.5);
+    width:1000px;
+    height: 700px;
+   
+}
+#bookRoute{
+    font-weight: bold;
+    color: white;
+}
+#heading{
+    font-style: italic;
+    font-size: x-large;
+}
+.coverBack{
+    background-color: rgba(0, 0, 0, 0.5);
+    width:100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.textArea{
+    margin-top: 20px;
+    margin-left: 20px;
+}

@@ -43,12 +43,12 @@ export function IndividualProduct()
                 <p id="other-details">Category: <span>{bookObj?.categoryName}</span></p>
                 <p id="other-details">Language: <span>English</span></p>
                 {!checkCart(bookState.cartItems, bookObj?.id) ? 
-                    <button id="cartStyle" onClick={()=>handleAddtoCart(bookObj,token,dispatch)}>Add to Cart</button>: 
+                    <button id="cartStyle" onClick={()=>handleAddtoCart(bookObj,token,dispatch,navigate)}>Add to Cart</button>: 
                     <button id="cartStyle" onClick={()=>navigate("/cart")}>Go to Cart</button>
                 }
                 {
                     !checkWishList(bookState.wishListItems, bookObj?.id) ? 
-                    <button id="wishListStyle" onClick={()=>handleAddtoWish(bookObj,token,dispatch)}>Add to WishList</button>:
+                    <button id="wishListStyle" onClick={()=>handleAddtoWish(bookObj,token,dispatch,navigate)}>Add to WishList</button>:
                     <button id="wishListStyle" onClick={()=>navigate("/wishList")}>Go to WishList</button>
                 }
                

@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 
 import "./Login.css"
+import { ProductContext } from "../../contexts/ProductProvider";
 function loginReducer(state,action)
 {
     switch(action.type)
@@ -20,13 +21,26 @@ export function Login()
 {
     const navigate = useNavigate();
     const location = useLocation();
-    const {user,setUser} = useContext(AuthContext);
+    const {bookState,dispatch} = useContext(ProductContext);
+    const {user,setUser,address,setAddress} = useContext(AuthContext);
     const [userState,reduceFun] = useReducer(loginReducer,{
         email:"",
         password:""
     })
+    const testAddress = {
+        Name:"testUser",
+        HouseNumber:"2/167 G",
+        Area:"Ambedkar Nagar, Samathuvapuram",
+        City: "Trichengode, Salem",
+        PinCode: "Salem - 630006",
+        State:"TamilNadu"
+    }
     const testLoginHandler = ()=>{
         reduceFun({type:"setCred",payload:null})
+        // const address = "2/167 G, Ambedkar Nagar, Samathuvapuram, Trichengode, Salem - 630006, TamilNadu"
+        
+        setAddress(testAddress);
+        // reduceFun()
         // reduceFun({type:"password",payload:"test@23"})
 
     }

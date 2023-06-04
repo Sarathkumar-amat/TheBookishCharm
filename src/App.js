@@ -19,12 +19,13 @@ import { Loader } from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import { Profile } from "./pages/profile/Profile";
 import { AuthContext } from "./contexts/AuthProvider";
+import { Placeorder } from "./components/Placeorder";
 
 function App() {
   const {bookState, dispatch,loader,setLoader} = useContext(ProductContext);
   const {loginState} = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(localStorage.getItem("token"));
+ 
   return (
     <div className="App">
     
@@ -47,6 +48,7 @@ function App() {
       <Route path="signUp" element={<SignUp />}/>
       <Route path="profile" element={<RequiresAuth><Profile/></RequiresAuth>}/>
       <Route path="/bookList/book/:bookId" element={<IndividualProduct />}/>
+      <Route path="/checkout" element={<Placeorder />}/>
 
       </Routes>
     </div>

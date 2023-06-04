@@ -14,22 +14,22 @@ export function Navigation()
 
     return (<div className="whole-nav">
         <nav className="nav-bar">
-            <div class="header-name">
-                <Link id="headerLink" to="/"><h1>My BookStore</h1> </Link>
+            <div className="header-name">
+                <Link id="headerLink" to="/"><h1>TheBookishCharm</h1> </Link>
             </div>
             <div className="search-bar">
                 <input type="text" placeholder="search book name" 
                 onChange={(event)=>searchHandler(event)}/>
             </div>
-            <div class="various-routes">
-                <button class="login-button">Login</button>
+            <div className="various-routes">
+                <button className="login-button">Login</button>
                 <div onClick={()=>navigate("/wishList")} class="wishList-link">
                     <div>{bookState.wishListItems.length}</div>
-                    <i class="material-symbols-outlined">favorite</i>
+                    <i className="material-symbols-outlined">favorite</i>
                 </div>
                 <div onClick={()=>navigate("/cart")} class="wishList-link">
                     <div>{bookState.cartItems.length}</div>
-                    <i class="material-symbols-outlined">shopping_cart</i>
+                    <i className="material-symbols-outlined">shopping_cart</i>
                 </div>
                 <div onClick={()=>navigate("/profile")} className="wishList-link">
                     profile

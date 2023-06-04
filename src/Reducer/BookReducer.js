@@ -10,6 +10,7 @@
     searchText:"",
     cartItems:[],
     wishListItems:[],
+    // address:""
 }
 
 export function reducerFunc(state,action){
@@ -53,6 +54,8 @@ export function reducerFunc(state,action){
             return {...state,wishListItems:[...action.payload]};
         case "log_out":
             return {...state,wishListItems:[],cartItems:[]};
+        // case "setAddress":
+        //     return {...state,address:action.payload}
                 
     }
     

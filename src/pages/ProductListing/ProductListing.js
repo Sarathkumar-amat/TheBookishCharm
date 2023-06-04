@@ -29,6 +29,7 @@ export function ProductListing()
     displayValue = ApplyCategoryFilter(bookState.categoryFilters);
     displayValue = SortByPrice(displayValue);
     displayValue = SearchFilter(displayValue);
+    // console.log(displayValue);
     displayValue = StarFilter(displayValue);
     displayValue = PriceFilter(displayValue);
     return (<div>
@@ -36,14 +37,21 @@ export function ProductListing()
         <div class="booksAndFilters">
             
             <div className="filterBars"><AllFilterings /></div>
-           <div>
+            {displayValue.length>0 && <div>
                 <h2>List of all products</h2>
                 <ul id="bookList">{displayValue?.map((book)=>
                 <div>
                     <BookCard bookObj={book} />
                 </div>
                 )}</ul>
+            </div> }
+            {displayValue.length<=0 && 
+                   <div className="NotFoundMsg"> 
+                        <h1>Sorry! Entered book not found</h1>
+                    </div>
+               }
             </div>
-        </div>
-    </div>)
+            
+        </div>)
+       
 }

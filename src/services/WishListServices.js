@@ -27,7 +27,6 @@ export const removeFromWishList = async(id,token,dispatch)=>{
                                             }
                                         }
                                         )
-            console.log(wishlist);
             dispatch({type:"removeFromWishList",payload:wishlist})
         }
         catch(error){

@@ -3,7 +3,6 @@ import axios from "axios"
 
 export const addToCart = async (product,token,dispatch)=>{
     try{
-        console.log(product);
         const {data:{cart}} = await axios.post("/api/user/cart",{product,},
                             {
                                 headers:{
@@ -11,7 +10,6 @@ export const addToCart = async (product,token,dispatch)=>{
                                 }
                             }
                             )
-        console.log(cart);
          dispatch({type:"addToCart",payload:cart})                   
     }
     catch(error)
@@ -31,7 +29,6 @@ export const removeFromCart = async (id,token,dispatch)=>{
                                 }
                             }
                             )
-        console.log(cart);
          dispatch({type:"removeFromCart",payload:cart})                   
     }
     catch(error)
