@@ -14,7 +14,15 @@ export function ProductProvider({children}){
         dispatch({type:"setBooks",payload:products});
     }
    
-    useEffect(()=>{getDetail()},[]);
+    useEffect(()=>{
+        const getDetail = async()=>{
+            const res = await fetch("/api/products");
+            const responseJson = await res.json();
+            const products = responseJson.products;
+            dispatch({type:"setBooks",payload:products});
+        }
+        getDetail();
+    },[]);
     // console.log(prods);
     return (<div>
         <ProductContext.Provider value={{bookState,dispatch,loader,setLoader}}>
