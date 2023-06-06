@@ -9,7 +9,7 @@ import { Footer } from "../../components/footer/Footer";
 export function Landing()
 {
     const {bookState,dispatch} = useContext(ProductContext);
-    const {setUser} = useContext(AuthContext);
+    // const {setUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const clickHandler = (category)=>{
         dispatch({type:"catFilter",payload:{currentCat:category,page:"landing"}})

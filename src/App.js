@@ -1,4 +1,4 @@
-import { Routes,Route, useNavigate } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";
 import "./App.css";
 // import logo from "./logo.png";
 import MockAPI from "./MockAPI";
@@ -18,7 +18,7 @@ import { IndividualProduct } from "./pages/IndividualProduct/IndividualProduct";
 import { Loader } from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import { Profile } from "./pages/profile/Profile";
-import { AuthContext } from "./contexts/AuthProvider";
+// import { AuthContext } from "./contexts/AuthProvider";
 import { Placeorder } from "./components/Placeorder";
 
 function App() {
