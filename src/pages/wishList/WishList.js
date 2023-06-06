@@ -7,7 +7,7 @@ import "./WishList.css"
 export function WishList()
 {
     const {bookState,dispatch} = useContext(ProductContext);
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
 
     return (<div>
         

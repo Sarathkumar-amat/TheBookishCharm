@@ -9,17 +9,13 @@ import { Footer } from "../../components/footer/Footer";
 export function Landing()
 {
     const {bookState,dispatch} = useContext(ProductContext);
-    const {user,setUser} = useContext(AuthContext);
+    const {setUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const clickHandler = (category)=>{
         dispatch({type:"catFilter",payload:{currentCat:category,page:"landing"}})
         navigate("/bookListing");
     }
-    const handleSignout = ()=>{
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        setUser();
-    }
+
     return (<div>
         
         {/* <Link to="/signUp">Sign Up</Link>

@@ -1,5 +1,5 @@
 import {createContext,useEffect, useContext, useState} from "react";
-import {initialState,reducerFunc} from "../Reducer/BookReducer.js";
+// import {initialState,reducerFunc} from "../Reducer/BookReducer.js";
 import { CategoryContext } from "./CategoryProvider.js";
 
 export const ProductContext = createContext();
@@ -14,7 +14,7 @@ export function ProductProvider({children}){
         dispatch({type:"setBooks",payload:products});
     }
    
-    useEffect(()=>{getDetail()},[]);
+    useEffect(()=>{getDetail()});
     // console.log(prods);
     return (<div>
         <ProductContext.Provider value={{bookState,dispatch,loader,setLoader}}>

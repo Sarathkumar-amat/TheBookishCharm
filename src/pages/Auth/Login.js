@@ -18,6 +18,9 @@ function loginReducer(state,action)
             return {...state,password:action.payload};
         case "setCred":
             return {...state,email:"test@gmail.com",password:"test@23"}
+        default:
+            console.log("something went wrong")
+            return {...state};
     }
 }
 export function Login()
@@ -25,8 +28,8 @@ export function Login()
     const navigate = useNavigate();
     const location = useLocation();
     const [passwordType,setPasswordType]=useState("password");
-    const {bookState,dispatch} = useContext(ProductContext);
-    const {user,setUser,address,setAddress} = useContext(AuthContext);
+    // const {bookState,dispatch} = useContext(ProductContext);
+    const {setUser,setAddress} = useContext(AuthContext);
     const [userState,reduceFun] = useReducer(loginReducer,{
         email:"",
         password:""

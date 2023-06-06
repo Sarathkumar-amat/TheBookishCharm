@@ -1,6 +1,6 @@
 import { Routes,Route, useNavigate } from "react-router-dom";
 import "./App.css";
-import logo from "./logo.png";
+// import logo from "./logo.png";
 import MockAPI from "./MockAPI";
 // import { Landing } from "./pages/Landing";
 // import { ProductListing } from "./pages/ProductListing";
@@ -22,9 +22,7 @@ import { AuthContext } from "./contexts/AuthProvider";
 import { Placeorder } from "./components/Placeorder";
 
 function App() {
-  const {bookState, dispatch,loader,setLoader} = useContext(ProductContext);
-  const {loginState} = useContext(AuthContext);
-  const navigate = useNavigate();
+  const {loader} = useContext(ProductContext);
  
   return (
     <div className="App">

@@ -10,7 +10,7 @@ export function Profile()
 {
     const [displayPage,setDisplayPage] = useState({profile:false,address:true});
     const {user,setUser,address} = useContext(AuthContext);
-    const {bookState,dispatch} = useContext(ProductContext);
+    const {dispatch} = useContext(ProductContext);
     const navigate = useNavigate();
     const handleSignout = ()=>{
         dispatch({type:"log_out",payload:null});

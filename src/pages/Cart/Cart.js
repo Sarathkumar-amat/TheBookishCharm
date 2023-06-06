@@ -6,7 +6,7 @@ import { removeFromCart, updatedQuantityinCart } from "../../services/CartServic
 import { toast } from "react-toastify";
 import { checkWishList } from "../../utils/checkBook";
 // import { handleAddtoWish } from "../../utils/wishListHandler";
-import { handleRemoveFromWish } from "../../utils/wishListHandler";
+// import { handleRemoveFromWish } from "../../utils/wishListHandler";
 import { addToWishList } from "../../services/WishListServices";
 import { useNavigate } from "react-router-dom";
 
