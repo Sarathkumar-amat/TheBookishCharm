@@ -9,11 +9,11 @@ export function Footer()
                 <p>Privacy Policy</p>
                 <p>Terms of use</p>
             </div>
-            <div>
+            <div className="socialMedia">
                 <p>Connect</p>
-                <p>Github</p>
-                <p>Twitter</p>
-                <p>Linkedin</p>
+                <a className="socialLinks" href="https://github.com/Sarathkumar-amat">Github</a>
+                <a className="socialLinks" href="https://twitter.com/SarathakaIdiot">Twitter</a>
+                <a className="socialLinks" href="https://www.linkedin.com/in/sarathkumar-n-827112187/">Linkedin</a>
             </div>
         </div>
     </div>)

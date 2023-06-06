@@ -8,3 +8,14 @@
     justify-content: space-between;
     margin:20px 70px;
 }
+.socialMedia{
+    display: flex;
+    flex-direction: column;
+}
+.socialLinks{
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin:5px 0px;
+
+}
