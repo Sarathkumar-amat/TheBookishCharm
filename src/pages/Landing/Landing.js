@@ -3,7 +3,7 @@ import { useContext } from "react";
 import {useNavigate} from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductProvider";
 import "./Landing.css"
-import { AuthContext } from "../../contexts/AuthProvider";
+// import { AuthContext } from "../../contexts/AuthProvider";
 import { Footer } from "../../components/footer/Footer";
 
 export function Landing()
