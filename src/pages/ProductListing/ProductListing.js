@@ -21,7 +21,7 @@ export function ProductListing()
         setTimeout(()=>{
             setLoader(()=>false);
         },1000)
-    },[])
+    },[])// eslint-disable-line react-hooks/exhaustive-deps
    
     let displayValue = bookState.displayBooks;
     // displayValue = CheckAndApplyFilter(bookState.categoryFilters);

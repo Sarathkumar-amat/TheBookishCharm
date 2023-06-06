@@ -15,7 +15,7 @@ export function ProductProvider({children}){
             const products = responseJson.products;
             dispatch({type:"setBooks",payload:products});
         }
-        getDetail();
+        getDetail();// eslint-disable-line react-hooks/exhaustive-deps
     },[]);
     // console.log(prods);
     return (<div>
