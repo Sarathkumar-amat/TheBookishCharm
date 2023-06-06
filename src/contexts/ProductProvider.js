@@ -14,7 +14,7 @@ export function ProductProvider({children}){
         dispatch({type:"setBooks",payload:products});
     }
    
-    useEffect(()=>{getDetail()});
+    useEffect(()=>{getDetail()},[]);
     // console.log(prods);
     return (<div>
         <ProductContext.Provider value={{bookState,dispatch,loader,setLoader}}>
