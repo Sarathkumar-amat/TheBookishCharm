@@ -3,6 +3,8 @@ import { AuthContext, ProductContext } from "../.."
 import "./profile.css"
 import { useNavigate } from "react-router-dom";
 import { Address } from "./Address";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export function Profile()
 {
@@ -16,13 +18,17 @@ export function Profile()
         localStorage.removeItem("user");
         setUser();
         navigate("/");
+        toast.warning("You have logged out!", {
+            position: toast.POSITION.TOP_RIGHT
+          });
 
     }
     const profileAddressStyle = (value)=> ({
-        background: displayPage[value]&&"black",
-        color:displayPage[value]&&"white"
+        background: displayPage[value]&&"rgba(13, 133, 169, 0.957)",
+        color:displayPage[value]&&"white",
+        border: displayPage[value]&&"none"
     })
-    console.log(address);
+    // console.log(address);
     return (<div className="profilePage">
        
         <div className="profileCard">
@@ -32,8 +38,8 @@ export function Profile()
             <button style={profileAddressStyle("address")} onClick={()=>setDisplayPage((previous)=>({...previous,profile:false,address:true}))} 
             className="addressButton">Address</button>
         </div>
-        {displayPage.profile && <div>
-            <div>Profile Details</div>
+        {displayPage.profile && <div className="profilePart">
+            <div className="pageHead">Profile Details</div>
             <div id="detail">
                 <div id="title">Full Name: </div>
                 <div id="name">{user?.firstName} {user?.lastName}</div>
@@ -43,7 +49,7 @@ export function Profile()
                 <div id="name">{user?.email}</div>
             </div>
             <div>
-                <button onClick={handleSignout}>log out</button>
+                <button className="logout" onClick={handleSignout}>log out</button>
             </div>
         </div>}
             {/* <div>{bookState?.address}</div> */}

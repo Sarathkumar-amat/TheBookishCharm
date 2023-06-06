@@ -29,7 +29,7 @@ export function AllFilterings()
          <ul id="catStyle"> {bookState.categories?.map(category=>
             <li key={category._id} class="individualCat">
                 <input class="categoryName" checked={bookState.categoryFilters?.includes(category)} type="checkbox" 
-                onChange={()=>dispatch({type:"catFilter",payload:category})} />
+                onChange={()=>dispatch({type:"catFilter",payload:{currentCat:category,page:"listing"}})} />
                 <label htmlFor="categoryName">{category}</label>
             </li>)}</ul>
         

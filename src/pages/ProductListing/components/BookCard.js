@@ -22,7 +22,7 @@ export function BookCard({bookObj})
         <li className="bookStyle" style={bookStyle}>
         <div className="imgLike">
            
-            <img onClick={()=>navigate(`/bookList/book/${id}`)} height="200px" width="100%" src={image} alt={title}/>
+            <img onClick={()=>navigate(`/bookList/book/${id}`)} height="200px" width="200px" src={image} alt={title}/>
             <div className="likeButton">
                 {!checkWishList(bookState.wishListItems,id) && 
                 <button onClick={()=>handleAddtoWish(bookObj,token,dispatch,navigate)}>
@@ -30,7 +30,7 @@ export function BookCard({bookObj})
                 </button>}
                 {checkWishList(bookState.wishListItems,id) && 
                 <button style={{color:"red"}} onClick={()=>handleRemoveFromWish(_id,token,dispatch)}>
-                    <i class="red-fav material-icons-outlined">favorite</i>
+                    <i width="20px" class="red-fav material-icons-outlined">favorite</i>
                 </button>}
             </div>
            
@@ -52,8 +52,8 @@ export function BookCard({bookObj})
             <p id="off">({discount}% OFF)</p>
         </div>
             <p>from {categoryName}</p>
-            {checkCart(bookState.cartItems,id) && <button onClick={()=>navigate("/cart")}>Go to Cart</button>}
-            {!checkCart(bookState.cartItems,id) &&<button onClick={()=>handleAddtoCart(bookObj,token,dispatch,navigate)}>Add to Cart</button>}
+            {checkCart(bookState.cartItems,id) && <button className="cartButton" onClick={()=>navigate("/cart")}>Go to Cart</button>}
+            {!checkCart(bookState.cartItems,id) &&<button className="cartButton" onClick={()=>handleAddtoCart(bookObj,token,dispatch,navigate)}>Add to Cart</button>}
            
         </li>
 

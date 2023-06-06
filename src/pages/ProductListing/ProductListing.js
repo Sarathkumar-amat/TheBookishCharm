@@ -3,7 +3,6 @@ import "./ProductList.css"
 
 
 import { ProductContext } from "../../contexts/ProductProvider";
-import { CategoryContext } from "../../contexts/CategoryProvider";
 import { ApplyCategoryFilter } from "./Filters/FilterMethods/ApplyCategoryFilter";
 import { AllFilterings } from "./Filters/AllFilterings";
 import { SortByPrice } from "./Filters/FilterMethods/SortbyPrice";
@@ -15,7 +14,7 @@ import { PriceFilter } from "./Filters/FilterMethods/PriceFilter";
 
 export function ProductListing()
 {
-    const {bookState,dispatch,loader,setLoader} = useContext(ProductContext);
+    const {bookState,setLoader} = useContext(ProductContext);
 
     useEffect(()=>{
         setLoader(()=>true);
@@ -38,9 +37,9 @@ export function ProductListing()
             
             <div className="filterBars"><AllFilterings /></div>
             {displayValue.length>0 && <div>
-                <h2>List of all products</h2>
+                <h2 className="productPageTitle">List of all products ({displayValue.length} items)</h2>
                 <ul id="bookList">{displayValue?.map((book)=>
-                <div>
+                <div key={book.id}>
                     <BookCard bookObj={book} />
                 </div>
                 )}</ul>

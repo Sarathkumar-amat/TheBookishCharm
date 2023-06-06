@@ -1,9 +1,68 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);
+    --textColor: rgb(230, 223, 223);
+  }
 .LoginDetails{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 20px;
+    border: 1px solid black;
+    width: 500px;
+    justify-content: center;
+    padding: 10px;
+    box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.4);
+    font-weight: bold;
+}
+.loginPage{
+    display: flex;
+    justify-content: center;
+    
+}
+.signUpButton{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+    cursor: pointer;
+
+}
+.loginButton{
+    background-color: white;
+    padding: 5px;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:black;
+    margin:10px 0px;
+    cursor: pointer;
+    
+}
+.doSignUp{
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+    cursor: pointer;
 }
 .loginText{
     /* width: 400px; */
 
 }
+.passwordContainer{
+    position: relative;
+}
+.passwordContainer input,.email input{
+    width: 400px;
+    padding: 5px;
+}
+.fa-eye,.fa-eye-slash{
+    position: absolute;
+    top: 28%;
+    right: 4%;
+    cursor: pointer;
+    color: lightgray;
+  }

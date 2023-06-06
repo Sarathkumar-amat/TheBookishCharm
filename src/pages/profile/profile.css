@@ -1,3 +1,7 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);
+    --textColor: rgb(230, 223, 223);
+  }
 .profileCard{
     display: flex;
     flex-direction: column;
@@ -12,8 +16,20 @@
     display: flex;
     justify-content: center;
 }
+.pageHead{
+    font-size: larger;
+    font-weight: bold;
+}
+.profilePart{
+    border: 1px solid black;
+    margin:20px 0px;
+    padding:20px;
+    box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.5);
+}
 #detail{
     display: flex;
+    margin: 20px 0px;
+    font-size: large;
 }
 #title{
     margin-right:10px;
@@ -23,13 +39,26 @@
     justify-content: space-around;
 }
 .profileButton,.addressButton{
-    padding: 20px;
+    padding: 10px;
     font-size: 20px;
     background-color: white;
     color:black;
     font-weight: bold;
+    border: 1px solid black;
 }
-.profileButton:hover, .addressButton:hover{
-    background-color: black;
+
+.profileButton:hover,.addressButton:hover{
+    background-color:var(--bgColor);
     color:white;
+    border: none;
+}
+.logout{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+    cursor: pointer;
 }

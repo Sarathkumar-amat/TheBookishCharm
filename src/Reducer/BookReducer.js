@@ -4,7 +4,7 @@
     categoryFilters: [],
     categories:[],
     categoryDetails:[],
-    priceRange:3000,
+    priceRange:5000,
     stars:null,
     sortType:"",
     searchText:"",
@@ -25,11 +25,17 @@ export function reducerFunc(state,action){
             return {...state,priceRange:Number(action.payload)}
         case "catFilter":
             let newCat=[];
-            if(state.categoryFilters?.find(element=>element===action.payload)){
-                newCat = state.categoryFilters.filter(value=>value!==action.payload)
+            if(state.categoryFilters?.find(element=>element===action.payload.currentCat)){
+                if(action.payload.page==="landing")
+                {
+                   newCat = state.categoryFilters
+                }
+                else{
+                    newCat = state.categoryFilters.filter(value=>value!==action.payload.currentCat)
+                }
             }
             else{
-                newCat = [...state.categoryFilters,action.payload];
+                newCat = [...state.categoryFilters,action.payload.currentCat];
             }
             return {...state,categoryFilters:newCat};
         case "starFilter":
@@ -39,7 +45,7 @@ export function reducerFunc(state,action){
         case "searchByText":
             return {...state,searchText:action.payload};
         case "clearFilter":
-            return {...state,categoryFilters:[],priceRange:3000,stars:null, sortType:"",searchText:""}
+            return {...state,categoryFilters:[],priceRange:5000,stars:null, sortType:"",searchText:""}
         case "addToCart":
             return {...state,cartItems:[...action.payload]};
         case "removeFromCart":
@@ -56,6 +62,9 @@ export function reducerFunc(state,action){
             return {...state,wishListItems:[],cartItems:[]};
         // case "setAddress":
         //     return {...state,address:action.payload}
+        default:
+            console.log("something went wrong")
+            return {...state}
                 
     }
     

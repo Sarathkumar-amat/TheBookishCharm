@@ -1,5 +1,6 @@
 import { useContext, useReducer } from "react"
 import { AuthContext } from "../../contexts/AuthProvider"
+import { v4 as uuid } from "uuid";
 import "./Address.css"
 
 const addressReducer = (state,action)=>{
@@ -21,6 +22,8 @@ const addressReducer = (state,action)=>{
         case "reset":
             state = action.payload
             return {...state};
+        default:
+            console.log("something went wrong")
         
     }
 }
@@ -43,10 +46,15 @@ export function Address()
     const {address,setAddress} = useContext(AuthContext);
     const addressSubmitHandler = (e)=>{
         e.preventDefault();
-        setAddress(addressState);
+        setAddress((data)=>[...data,{...addressState,id:uuid()}]);
         reducerFun({type:"reset",payload:initialState});
     }
+    const handleDelete = (addressId)=>{
+        const newAddress = address.filter(({id})=>id!==addressId);
+        setAddress(newAddress);
+    }
     const testAddress = {
+        id:uuid(),
         Name:"testUser",
         HouseNumber:"2/167 G",
         Area:"Ambedkar Nagar, Samathuvapuram",
@@ -55,21 +63,25 @@ export function Address()
         State:"TamilNadu",
         Mobile:"555555555"
     }
-    console.log(address);
     return (<div>
         <div className="currentAddress">
-            <div className="addressheading">Current Address</div>
-            {address==="address not set yet" && <div>{address} 
-            <button onClick={()=>setAddress(testAddress)}>Set Default Address</button>
+            <div className="addressheading">Available addresses</div>
+            {address.length<=0 && <div>{address} 
+            <button onClick={()=>setAddress((data)=>[...data,testAddress])}>Set Default Address</button>
             </div> }
-            {address.Name!==undefined && <div>
-                <div>{address.Name},</div>
-                <div>{address.HouseNumber},</div>
-                <div>{address.Area},</div>
-                <div>{address.City},</div>
-                <div>PinCode: {address.PinCode},</div>
-                <div>{address.State},</div>
-                <div>Phone Number: {address.Mobile}</div>
+            {address.length>0 && <div>
+                {
+                address.map((indiAddress)=>
+            <div className="indiAddress">
+                <div>{indiAddress.Name},</div>
+                <div>{indiAddress.HouseNumber},</div>
+                <div>{indiAddress.Area},</div>
+                <div>{indiAddress.City},</div>
+                <div>PinCode: {indiAddress.PinCode},</div>
+                <div>{indiAddress.State},</div>
+                <div>Phone Number: {indiAddress.Mobile}</div>
+                <button onClick={()=>handleDelete(indiAddress.id)}>Delete</button>
+            </div>)}
             </div>}
         </div>
         <form onSubmit={(event)=>addressSubmitHandler(event)}>

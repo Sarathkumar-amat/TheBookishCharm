@@ -1,3 +1,8 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);;
+    --textColor: rgb(230, 223, 223);
+  }
+
 #pricePart,#discountPart,#final-Price{
     display: flex;
     justify-content: space-between;
@@ -6,14 +11,36 @@
     margin:0;
     padding:5px;
 }
+.checkOut{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+    align-self:center;
+    margin-top:20px;
+    /* justify-self: center; */
+}
 .checkOutContainer{
     margin: 10px 20px;
     box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.2);
     width:300px;
-    height:200px;
-    padding:10px;
+    /* height:200px; */
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    margin:50px;
+    height: 300px;
 }
 #final-Price{
     border-top:1px solid black;
     border-bottom:1px solid black;
+    font-weight: bold;
+}
+.discountText{
+    color: green;
+    text-align: center;
+    font-style: italic;
 }

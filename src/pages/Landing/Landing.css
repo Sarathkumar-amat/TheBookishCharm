@@ -20,6 +20,8 @@
 }
 .welcome-text{
     text-align: center;
+    font-size: large;
+    font-weight: bold;
 }
 .coverPage{
     display: flex;
@@ -43,12 +45,15 @@
 .hd{
     position: absolute;
     font-family: Arial;
-    font-size:xx-large;
+    font-size:x-large;
     color: white;
     /* top:20px; */
     background-color: rgba(0, 0, 0, 0.5);
     width:1000px;
     height: 700px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
    
 }
 #bookRoute{
@@ -69,4 +74,9 @@
 .textArea{
     margin-top: 20px;
     margin-left: 20px;
+}
+.exploreButton{
+    padding: 10px;
+    font-size: medium;
+    font-weight: bold;
 }

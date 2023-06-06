@@ -10,11 +10,14 @@ export function WishList()
     const token = localStorage.getItem("token");
 
     return (<div>
-        {bookState.wishListItems.length>0 ? <ul>{bookState.wishListItems?.map((book)=>
-        <li>
+        
+        {bookState.wishListItems.length>0 ?<div> 
+            <h3 className="wishListTitle">My WishList ({bookState.wishListItems.length} items)</h3>
+            <ul>{bookState.wishListItems?.map((book)=>
+        <li key={book.id}>
            <WishListCard bookObj={book} cart={bookState?.cartItems} dispatch={dispatch}/>
         </li>
-        )}</ul>:
+        )}</ul></div>:
         <div className="wishListMsg">
             <h1>No items in wishList! ☹️</h1>
         </div>}

@@ -22,17 +22,17 @@ export function Navigation()
                 onChange={(event)=>searchHandler(event)}/>
             </div>
             <div className="various-routes">
-                <button className="login-button">Login</button>
-                <div onClick={()=>navigate("/wishList")} class="wishList-link">
+                {/* <button className="login-button">Login</button> */}
+                <div onClick={()=>navigate("/wishList")} className="wishList-link">
                     <div>{bookState.wishListItems.length}</div>
                     <i className="material-symbols-outlined">favorite</i>
                 </div>
-                <div onClick={()=>navigate("/cart")} class="wishList-link">
+                <div onClick={()=>navigate("/cart")} className="wishList-link">
                     <div>{bookState.cartItems.length}</div>
                     <i className="material-symbols-outlined">shopping_cart</i>
                 </div>
                 <div onClick={()=>navigate("/profile")} className="wishList-link">
-                    profile
+                    <i className="material-symbols-outlined">person</i>
                 </div>
             </div>
         </nav>

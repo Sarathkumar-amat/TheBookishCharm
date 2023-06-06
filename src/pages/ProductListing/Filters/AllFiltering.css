@@ -9,10 +9,18 @@
     transition: left 0.5s ease-out; */
     /* grid-area: aside; */
 }
+.filterings h4{
+    margin-top:10px;
+    margin-bottom:10px;
+}
 #sortInputs{
     display:flex;
     flex-direction: column;
     margin-left:-20px;
+}
+.fltrHeader h3{
+    margin-top:10px;
+    margin-bottom:10px;
 }
 .fltrHeader{
     display: flex;

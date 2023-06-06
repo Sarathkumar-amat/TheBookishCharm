@@ -1,7 +1,10 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);;
+    --textColor: rgb(230, 223, 223);
+  }
+
 .book-detail{
-    display: flex;
-   
-    
+    display: flex;  
 }
 .book-list{
     border:1px solid black;
@@ -42,4 +45,23 @@
 }
 #orgPrice::before,#finalPrice::before{
     content: "₹";
+}
+.removeButton{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+}
+.cartinWish{
+    background-color: white;
+    padding: 5px;
+    border:1px solid black;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:black;
+    margin-left:10px;
 }

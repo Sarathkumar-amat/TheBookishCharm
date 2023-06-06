@@ -1,3 +1,7 @@
+:root {
+    --bgColor: rgba(13, 133, 169, 0.957);;
+    --textColor: rgb(230, 223, 223);
+  }
 .signUpForm{
     display: flex;
     flex-direction: column;
@@ -6,10 +10,21 @@
     text-align: left;
     /* border: 5px solid black; */
     box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.3);
-    padding:10px;
-    width: 500px;
-}
+    padding:20px;
+    width:fit-content;
+    font-size: medium;
+    font-weight: bold;
 
+}
+.signUpButton{
+    background-color: var(--bgColor);
+    padding: 5px;
+    border:none;
+    border-radius: 5px;
+    font-size: medium;
+    font-weight: bold;
+    color:var(--textColor);
+}
 .firstName{
     display: flex;
     flex-direction: column;
@@ -18,6 +33,18 @@
 .name{
     display: flex;
 }
+.email{
+    display: flex;
+    flex-direction: column;
+}
+.firstName input, .lastName input, .email input{
+    padding: 5px 10px;
+}
+.name,.email,.pwd,.confPwd{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .lastName{
     display: flex;
     flex-direction: column;
@@ -29,3 +56,17 @@
     /* justify-content: center; */
     align-items: center;
 }
+.pwdContainer{
+    position: relative;
+}
+.pwdContainer input{
+    width: 400px;
+    padding: 5px 10px;
+}
+.fa-eye,.fa-eye-slash{
+    position: absolute;
+    top: 28%;
+    right: 4%;
+    cursor: pointer;
+    color: lightgray;
+  }

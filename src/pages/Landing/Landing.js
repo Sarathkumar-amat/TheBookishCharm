@@ -1,5 +1,5 @@
-import { useContext, useEffect,useState } from "react";
-import {Link} from "react-router-dom";
+import { useContext } from "react";
+// import {Link} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 import { ProductContext } from "../../contexts/ProductProvider";
 import "./Landing.css"
@@ -12,7 +12,7 @@ export function Landing()
     const {user,setUser} = useContext(AuthContext);
     const navigate = useNavigate();
     const clickHandler = (category)=>{
-        dispatch({type:"catFilter",payload:category})
+        dispatch({type:"catFilter",payload:{currentCat:category,page:"landing"}})
         navigate("/bookListing");
     }
     const handleSignout = ()=>{
@@ -32,19 +32,19 @@ export function Landing()
             <div className="hd">
                 <div className="textArea">
                     <p id="heading">TheBookishCharm</p>
-                    <p>Fire your neurons by <Link to="/bookListing" id="bookRoute">reading more...</Link></p>
+                    <p>Turning Pages, Shaping Lives: Discover the Power of Books </p>
+                        <button onClick={()=>navigate("/bookListing")} className="exploreButton">Explore Now</button>    
+                        {/* <Link to="/bookListing" id="bookRoute">reading more...</Link></p> */}
                 </div>
             </div>
             <div className="coverBack"></div>
         </div>
-        <p className="welcome-text">Please select one of the available book categories</p>
+        <p className="welcome-text">Please select from one of the available book categories</p>
        <div className="category-div"> {bookState.categoryDetails?.map(({_id,categoryName,description})=>
             <div key={_id} onClick={()=>clickHandler(categoryName)} className="category-style">
                 <h2>{categoryName}</h2><br/>
                 <p>{description}</p>
             </div>
-       
-        
         )}</div>
         <footer>
           <Footer />

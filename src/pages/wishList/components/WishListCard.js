@@ -36,8 +36,8 @@ export function WishListCard({bookObj,cart,dispatch})
                 </div>
                
         </div>   
-        <button onClick={()=>handleRemoveWish(_id)}>Remove From WishList</button>
-        {checkInCart(id)?<button>Already in Cart</button>:
-        <button onClick={()=>handleMovetoCart(bookObj)}>Move to Cart</button>}
+        <button className="removeButton" onClick={()=>handleRemoveWish(_id)}>Remove From WishList</button>
+        {checkInCart(id)?<button className="cartinWish">Already in Cart</button>:
+        <button className="cartinWish" onClick={()=>handleMovetoCart(bookObj)}>Move to Cart</button>}
     </div>)
 }
