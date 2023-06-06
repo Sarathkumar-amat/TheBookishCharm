@@ -7,12 +7,6 @@ export function ProductProvider({children}){
     const {bookState,dispatch} = useContext(CategoryContext);
     const [loader,setLoader] = useState(false);
     // let prods = 2;
-    const getDetail = async()=>{
-        const res = await fetch("/api/products");
-        const responseJson = await res.json();
-        const products = responseJson.products;
-        dispatch({type:"setBooks",payload:products});
-    }
    
     useEffect(()=>{
         const getDetail = async()=>{
