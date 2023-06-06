@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { ProductContext } from "../../contexts/ProductProvider"
-import { removeFromWishList } from "../../services/WishListServices";
+// import { removeFromWishList } from "../../services/WishListServices";
 import { WishListCard } from "./components/WishListCard";
 import "./WishList.css"
 

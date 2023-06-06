@@ -1,8 +1,8 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import { removeFromWishList } from "../../../services/WishListServices";
 import "./WishListCard.css";
-import { ProductContext } from "../../../contexts/ProductProvider";
-import { addToCart } from "../../../services/CartServices";
+// import { ProductContext } from "../../../contexts/ProductProvider";
+// import { addToCart } from "../../../services/CartServices";
 import { handleAddtoCart } from "../../../utils/cartHandler";
 import { useNavigate } from "react-router-dom";
 
